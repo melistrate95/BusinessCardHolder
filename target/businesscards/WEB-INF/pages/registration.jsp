@@ -18,7 +18,6 @@
             <form method="post" action="/registration" commandName="userRegistration" >
                 <input type="text" id="name" name="name" class="form-control" placeholder="Name">
                 <input type="text" id="mail" name="mail" class="form-control" placeholder="Mail">
-                <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone">
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password">
                 <br>
                 <button class="btn btn-primary" type="submit" name="save">Create account</button>

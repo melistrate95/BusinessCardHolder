@@ -38,10 +38,6 @@ public class RegistrationController {
             model.put("userRegistration", user);
             return "registration";
         }
-        if (this.userRepository.findUserByEmailAndPassword(user.getMail(), "0000")) {
-            int id = this.userRepository.getIdByEmailAndPassword(user.getMail(), "0000");
-            this.userRepository.removeUser(id);
-        }
         if (!this.userRepository.findUserByEmail(user.getMail())) {
             appointRole(user);
             this.userRepository.addUser(user);

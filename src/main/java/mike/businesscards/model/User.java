@@ -29,9 +29,6 @@ public class User implements Serializable, UserDetails {
     @Column(name = "MAIL", nullable = false)
     private String mail;
 
-    @Column(name = "PHONE")
-    private String phone;
-
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
@@ -55,10 +52,6 @@ public class User implements Serializable, UserDetails {
         return mail;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -69,10 +62,6 @@ public class User implements Serializable, UserDetails {
 
     public void setMail(String mail) {
         this.mail = mail;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public void setPassword(String password) {
@@ -88,17 +77,15 @@ public class User implements Serializable, UserDetails {
         this.password = password;
     }
 
-    public User(String name, String mail, String phone, String password) {
+    public User(String name, String mail, String password) {
         this.name = name;
         this.mail = mail;
-        this.phone = phone;
         this.password = password;
     }
 
     public User() {
         this.name = "";
         this.mail = "";
-        this.phone = "";
         this.password = "";
     }
 
