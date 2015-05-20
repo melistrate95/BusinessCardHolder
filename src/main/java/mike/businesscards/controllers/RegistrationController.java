@@ -1,6 +1,6 @@
 package mike.businesscards.controllers;
 
-import mike.businesscards.dao.UserRepository;
+import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.User;
 import mike.businesscards.model.enums.UserRoleEnum;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/registration")
 public class RegistrationController {
 
-    private UserRepository userRepository;
+    private UserDaoImpl userDaoImpl;
 
     @Autowired
-    public RegistrationController(UserRepository userRepository){
-        this.userRepository = userRepository;
+    public RegistrationController(UserDaoImpl userDaoImpl){
+        this.userDaoImpl = userDaoImpl;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -38,9 +38,9 @@ public class RegistrationController {
             model.put("userRegistration", user);
             return "registration";
         }
-        if (!this.userRepository.findUserByEmail(user.getMail())) {
+        if (!this.userDaoImpl.findUserByEmail(user.getMail())) {
             appointRole(user);
-            this.userRepository.addUser(user);
+            this.userDaoImpl.addUser(user);
         }
         return "login";
     }

@@ -1,30 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfb104ab-0069-4a45-a2a8-848ca83790c3" name="Default" comment="start">
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\css\bootstrap-image-gallery.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\css\bootstrap-image-gallery.min.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\css\cutimage.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\css\jquery.fancybox-1.3.3.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\css\jquery.fileupload-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\css\jquery.fileupload.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\js\bootstrap-image-gallery.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\js\bootstrap-image-gallery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\js\jquery.fileupload-image.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\js\jquery.fileupload-ui.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\js\jquery.fileupload.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\css\bootstrap-image-gallery.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\css\bootstrap-image-gallery.min.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\css\cutimage.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\css\jquery.fancybox-1.3.3.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\css\jquery.fileupload-ui.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\css\jquery.fileupload.css" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\js\bootstrap-image-gallery.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\js\bootstrap-image-gallery.min.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\js\jquery.fileupload-image.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\js\jquery.fileupload-ui.js" afterPath="" />
-      <change type="DELETED" beforePath="D:\My_projects\Itra\BusinessCardHolder\target\businesscards\js\jquery.fileupload.js" afterPath="" />
+    <list default="true" id="cfb104ab-0069-4a45-a2a8-848ca83790c3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserDao.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/change_user.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/AdminController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/LogoutController.java" afterPath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/LogoutController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/PersonalController.java" afterPath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/PersonalController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/RegistrationController.java" afterPath="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/RegistrationController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mike/businesscards/service/UserDetailsServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/mike/businesscards/service/UserDetailsServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manage.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/businesscards/WEB-INF/pages/manage.jsp" afterPath="$PROJECT_DIR$/target/businesscards/WEB-INF/pages/manage.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="D:\My_projects\Itra\BusinessCardHolder\src\main\java\mike\businesscards\dao\UserRepository.java" afterPath="$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserDaoImpl.java" />
     </list>
     <ignored path="BusinessCardHolder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,28 +67,75 @@
       <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="196" max-vertical-offset="1632">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="1632">
               <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registration.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.jsp">
+      <file leaf-file-name="UserDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="544">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manage.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manage.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.153846" vertical-offset="244" max-vertical-offset="816">
+              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manage.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manage.jsp">
+      <file leaf-file-name="change_user.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/change_user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5483871" vertical-offset="0" max-vertical-offset="799">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.23287672" vertical-offset="0" max-vertical-offset="442">
+              <caret line="6" column="61" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
+              <folding>
+                <element signature="e#0#41#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="applicationContext-database" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-database">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="884">
+              <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PersonalController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/PersonalController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1071">
+              <caret line="7" column="61" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
+              <folding>
+                <element signature="e#935#936#0" expanded="true" />
+                <element signature="e#981#982#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDaoImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserDaoImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="1394">
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -133,10 +169,8 @@
         <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/menage.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/message_en.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/service/UserDetailsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/login.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/personal.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/PersonalController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-locale" />
         <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/filter/FormEncodingSetterFilter.java" />
@@ -147,15 +181,21 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-security" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/RegistrationController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/template/navbar.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manage.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/jquery.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/change_user.coffee" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/service/UserDetailsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/RegistrationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/AdminController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/PersonalController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/change_user.js" />
       </list>
     </option>
   </component>
@@ -338,6 +378,40 @@
               <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="template" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BusinessCardHolder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BusinessCardHolder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -380,36 +454,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BusinessCardHolder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BusinessCardHolder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -474,48 +518,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="businesscards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BusinessCardHolder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BusinessCardHolder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mike" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="businesscards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="enums" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -611,9 +613,12 @@
     <property name="options.lastSelected" value="File.Encoding" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\My_projects\Itra\BusinessCardHolder\src\main\java\mike\businesscards\dao" />
       <recent name="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\WEB-INF" />
       <recent name="D:\My_projects\Itra\BusinessCardHolder\src\main\resources" />
       <recent name="D:\My_projects\Itra\BusinessCardHolder\src\main\webapp\WEB-INF\pages" />
@@ -989,7 +994,7 @@
       <workItem from="1432031755534" duration="1815000" />
       <workItem from="1432072086224" duration="4217000" />
       <workItem from="1432130650986" duration="5318000" />
-      <workItem from="1432143779539" duration="6996000" />
+      <workItem from="1432143779539" duration="14644000" />
     </task>
     <task id="LOCAL-00001" summary="dropdown and locale">
       <created>1432074989820</created>
@@ -1021,11 +1026,17 @@
       <option name="project" value="LOCAL" />
       <updated>1432154405829</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="start">
+      <created>1432155577958</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1432155577958</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76978000" />
+    <option name="totallyTimeSpent" value="84626000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -1107,7 +1118,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="10" />
+      <option name="time" value="17" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1116,28 +1127,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/RegistrationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="52" max-vertical-offset="442">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/service/UserDetailsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="27" max-vertical-offset="612">
-          <caret line="24" column="49" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/home.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="221">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/template/template.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="818" max-vertical-offset="1190">
@@ -1232,8 +1221,8 @@
           <caret line="20" column="21" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#583#584#0" expanded="false" />
-            <element signature="e#613#614#0" expanded="false" />
+            <element signature="e#474#475#0" expanded="false" />
+            <element signature="e#504#505#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1276,33 +1265,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/template/template.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.25089607" vertical-offset="325" max-vertical-offset="680">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/template/body.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4265233" vertical-offset="0" max-vertical-offset="279">
           <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/template/title.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4265233" vertical-offset="0" max-vertical-offset="279">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-security">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30357143" vertical-offset="0" max-vertical-offset="560">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1349,8 +1315,8 @@
         <state vertical-scroll-proportion="0.6080692" vertical-offset="44" max-vertical-offset="391">
           <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
           <folding>
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#927#928#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#504#505#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1371,14 +1337,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/service/UserDetailsServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2005988" vertical-offset="52" max-vertical-offset="442">
-          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/model/enums/UserRoleEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3429395" vertical-offset="0" max-vertical-offset="347">
@@ -1391,22 +1349,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.05919003" vertical-offset="155" max-vertical-offset="476">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/RegistrationController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44011977" vertical-offset="312" max-vertical-offset="884">
-          <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/action-servlet">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.3429395" vertical-offset="459" max-vertical-offset="833">
-          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -1432,78 +1374,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/AdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38922155" vertical-offset="227" max-vertical-offset="663">
-          <caret line="35" column="43" selection-start-line="32" selection-start-column="8" selection-end-line="35" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1428">
-          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-          <folding>
-            <element signature="e#728#729#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="510">
           <caret line="21" column="85" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/PersonalController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="265" max-vertical-offset="850">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="196" max-vertical-offset="1632">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-database">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9323583" vertical-offset="0" max-vertical-offset="884">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding>
-            <element signature="e#1514#1539#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11888112" vertical-offset="0" max-vertical-offset="867">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/template/navbar.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.060822897" vertical-offset="153" max-vertical-offset="1343">
-          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="544">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="34" />
           <folding />
         </state>
       </provider>
@@ -1518,11 +1392,154 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/registration.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65037596" vertical-offset="201" max-vertical-offset="544">
+          <caret line="22" column="97" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/template/navbar.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0609319" vertical-offset="561" max-vertical-offset="1343">
+          <caret line="32" column="41" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/template/template.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.769231" vertical-offset="121" max-vertical-offset="680">
+          <caret line="19" column="64" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/template/title.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4265233" vertical-offset="0" max-vertical-offset="279">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="1632">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/action-servlet">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6721312" vertical-offset="0" max-vertical-offset="833">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3836066" vertical-offset="490" max-vertical-offset="867">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-security">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.60714287" vertical-offset="0" max-vertical-offset="459">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.1.5.RELEASE/spring-tx-4.1.5.RELEASE.jar!/org/springframework/transaction/annotation/Transactional.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3607143" vertical-offset="69" max-vertical-offset="595">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/service/UserDetailsServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4041096" vertical-offset="52" max-vertical-offset="442">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/RegistrationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.69863015" vertical-offset="510" max-vertical-offset="1054">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages/manage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5483871" vertical-offset="0" max-vertical-offset="799">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+        <state vertical-scroll-proportion="-14.153846" vertical-offset="244" max-vertical-offset="816">
+          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59246576" vertical-offset="609" max-vertical-offset="1003">
+          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext-database">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.24" vertical-offset="0" max-vertical-offset="884">
+          <caret line="18" column="56" selection-start-line="18" selection-start-column="56" selection-end-line="18" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/controllers/PersonalController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1071">
+          <caret line="7" column="61" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
+          <folding>
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="1394">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mike/businesscards/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/change_user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23287672" vertical-offset="0" max-vertical-offset="442">
+          <caret line="6" column="61" selection-start-line="6" selection-start-column="61" selection-end-line="6" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#41#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

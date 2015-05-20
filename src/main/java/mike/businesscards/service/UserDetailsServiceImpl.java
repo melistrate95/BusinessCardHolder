@@ -1,6 +1,6 @@
 package mike.businesscards.service;
 
-import mike.businesscards.dao.UserRepository;
+import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,11 +18,11 @@ import java.util.Set;
 public class UserDetailsServiceImpl  implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserDaoImpl userDaoImpl;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.getUserByEmail(email);
+        User user = userDaoImpl.getUserByEmail(email);
         Set<GrantedAuthority> roles = new HashSet();
         roles.add(new SimpleGrantedAuthority(user.getRole()));
         return new org.springframework.security.core.userdetails.User(user.getMail(), user.getPassword(), roles);

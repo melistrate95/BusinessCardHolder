@@ -1,6 +1,6 @@
 package mike.businesscards.controllers;
 
-import mike.businesscards.dao.UserRepository;
+import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class PersonalController {
 
-    private UserRepository userRepository;
+    private UserDaoImpl userDaoImpl;
 
     @Autowired
-    public PersonalController(UserRepository userRepository){
-        this.userRepository = userRepository;
+    public PersonalController(UserDaoImpl userDaoImpl){
+        this.userDaoImpl = userDaoImpl;
     }
 
     @RequestMapping(value = "/personal", method = RequestMethod.GET)
@@ -33,7 +33,7 @@ public class PersonalController {
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetails = (UserDetails) auth.getPrincipal();
             String email = userDetails.getUsername();
-            User nowUser = this.userRepository.getUserByEmail(email);
+            User nowUser = this.userDaoImpl.getUserByEmail(email);
             model.addAttribute("id", nowUser.getId());
         }
         return "redirect:/id{id}";
@@ -45,10 +45,10 @@ public class PersonalController {
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetails = (UserDetails) auth.getPrincipal();
             String email = userDetails.getUsername();
-            User nowUser = this.userRepository.getUserByEmail(email);
+            User nowUser = this.userDaoImpl.getUserByEmail(email);
             model.addAttribute("email", nowUser.getMail());
         }
-        User thisUser = this.userRepository.getUserById(id);
+        User thisUser = this.userDaoImpl.getUserById(id);
         model.addAttribute("name", thisUser.getName());
         model.addAttribute("this_email", thisUser.getMail());
         return "personal";

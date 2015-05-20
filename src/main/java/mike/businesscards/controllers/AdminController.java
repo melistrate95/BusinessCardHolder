@@ -1,6 +1,6 @@
 package mike.businesscards.controllers;
 
-import mike.businesscards.dao.UserRepository;
+import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -21,11 +21,11 @@ import java.util.ArrayList;
 @Controller
 public class AdminController {
 
-    private UserRepository userRepository;
+    private UserDaoImpl userDaoImpl;
 
     @Autowired
-    public AdminController(UserRepository userRepository){
-        this.userRepository = userRepository;
+    public AdminController(UserDaoImpl userDaoImpl){
+        this.userDaoImpl = userDaoImpl;
     }
 
     @RequestMapping(value = "/manage")
@@ -34,14 +34,20 @@ public class AdminController {
         UserDetails userDetails = (UserDetails) auth.getPrincipal();
         String email = userDetails.getUsername();
         model.addAttribute("email", email);
-        ArrayList<User> userArrayList = (ArrayList<User>) this.userRepository.listAll();
+        ArrayList<User> userArrayList = (ArrayList<User>) this.userDaoImpl.listAll();
         model.addAttribute("array", userArrayList);
         return "manage";
     }
 
     @RequestMapping(value = "/manage/delete/id{id}", method = RequestMethod.GET)
     public String deleteUserPage(@PathVariable Integer id, ModelMap model) {
-        this.userRepository.removeUser(id);
+        this.userDaoImpl.removeUser(id);
+        return "redirect:/manage";
+    }
+
+    @RequestMapping(value = "/manage/save", method = RequestMethod.GET)
+    public String saveUserChange(ModelMap model) {
+
         return "redirect:/manage";
     }
 }

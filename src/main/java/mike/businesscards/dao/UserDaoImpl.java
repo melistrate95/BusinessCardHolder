@@ -14,7 +14,7 @@ import java.util.List;
  */
 @Repository
 @Transactional
-public class UserRepository {
+public class UserDaoImpl {
 
     @Autowired
     private SessionFactory sessionFactory;
