@@ -7,7 +7,7 @@
              http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
     <http auto-config="true" use-expressions="true">
-        <intercept-url pattern="/manage" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/manage/**" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/id*/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
         <form-login login-page="/login" default-target-url="/personal"
                     authentication-failure-url="/login"/>

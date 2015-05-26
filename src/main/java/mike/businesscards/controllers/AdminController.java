@@ -2,7 +2,9 @@ package mike.businesscards.controllers;
 
 import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.User;
+import mike.businesscards.service.UserSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,10 +32,7 @@ public class AdminController {
 
     @RequestMapping(value = "/manage")
     public String getManagePage(ModelMap model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) auth.getPrincipal();
-        String email = userDetails.getUsername();
-        model.addAttribute("email", email);
+        (new UserSessionService()).addMailAttribute(model);
         ArrayList<User> userArrayList = (ArrayList<User>) this.userDaoImpl.listAll();
         model.addAttribute("array", userArrayList);
         return "manage";
@@ -45,9 +44,22 @@ public class AdminController {
         return "redirect:/manage";
     }
 
-    @RequestMapping(value = "/manage/save", method = RequestMethod.GET)
-    public String saveUserChange(ModelMap model) {
+    @RequestMapping(value = "/manage/edit/id{id}", method = RequestMethod.GET)
+    public String editUserPage(@PathVariable Integer id, ModelMap model) {
+        (new UserSessionService()).addMailAttribute(model);
+        User user = this.userDaoImpl.getUserById(id);
+        model.addAttribute("user", user);
+        return "user_edit";
+    }
 
+    @RequestMapping(value = "/manage/save", method = RequestMethod.POST)
+    public String saveUserChange(ModelMap model, User user) {
+        User fullUser = this.userDaoImpl.getUserByEmail(user.getMail());
+        fullUser.setPassword(user.getPassword());
+        fullUser.setName(user.getName());
+        fullUser.setMail(user.getMail());
+        fullUser.setRole(user.getRole());
+        this.userDaoImpl.addUser(fullUser);
         return "redirect:/manage";
     }
 }

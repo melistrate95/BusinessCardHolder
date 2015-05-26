@@ -1,5 +1,6 @@
 package mike.businesscards.controllers;
 
+import mike.businesscards.service.UserSessionService;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,12 +20,7 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String goHome(ModelMap model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (!(auth instanceof AnonymousAuthenticationToken)) {
-            UserDetails userDetails = (UserDetails) auth.getPrincipal();
-            String email = userDetails.getUsername();
-            model.addAttribute("email", email);
-        }
+        (new UserSessionService()).addMailAttribute(model);
         return "home";
     }
 

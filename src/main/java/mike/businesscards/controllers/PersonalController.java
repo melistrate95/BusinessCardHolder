@@ -2,6 +2,7 @@ package mike.businesscards.controllers;
 
 import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.User;
+import mike.businesscards.service.UserSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -41,13 +42,7 @@ public class PersonalController {
 
     @RequestMapping(value = "/id{id}")
     public String goToAccount(@PathVariable Integer id, ModelMap model) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (!(auth instanceof AnonymousAuthenticationToken)) {
-            UserDetails userDetails = (UserDetails) auth.getPrincipal();
-            String email = userDetails.getUsername();
-            User nowUser = this.userDaoImpl.getUserByEmail(email);
-            model.addAttribute("email", nowUser.getMail());
-        }
+        (new UserSessionService()).addMailAttribute(model);
         User thisUser = this.userDaoImpl.getUserById(id);
         model.addAttribute("name", thisUser.getName());
         model.addAttribute("this_email", thisUser.getMail());

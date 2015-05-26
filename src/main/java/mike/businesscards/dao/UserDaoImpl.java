@@ -20,7 +20,7 @@ public class UserDaoImpl {
     private SessionFactory sessionFactory;
 
     public void addUser(User user) {
-        this.sessionFactory.getCurrentSession().save(user);
+        this.sessionFactory.getCurrentSession().saveOrUpdate(user);
     }
 
     public List<User> listAll() {

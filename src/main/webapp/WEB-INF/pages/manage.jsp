@@ -25,18 +25,18 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${array}" var="tab">
-                <tr>
-                    <td>${tab.name}</td>
-                    <td>${tab.mail}</td>
-                    <td class="change">${tab.password}</td>
-                    <td>${tab.role}</td>
-                    <td><a href="http://localhost:8080/id${tab.id}">id${tab.id}</a> </td>
-                    <td><a href="/manage/delete/id${tab.id}">Delete</a> </td>
-                </tr>
-            </c:forEach>
+                <c:forEach items="${array}" var="tab">
+                    <tr>
+                        <td>${tab.name}</td>
+                        <td>${tab.mail}</td>
+                        <td>${tab.password}</td>
+                        <td>${tab.role}</td>
+                        <td><a href="http://localhost:8080/id${tab.id}">id${tab.id}</a> </td>
+                        <td><a href="/manage/delete/id${tab.id}">Delete</a> </td>
+                        <td><a href="/manage/edit/id${tab.id}">Edit</a> </td>
+                    </tr>
+                </c:forEach>
             </tbody>
         </table>
-        <a href="/manage/save"><button class="btn btn-primary">Save change</button></a>
     </tiles:putAttribute>
 </tiles:insertDefinition>
