@@ -43,8 +43,8 @@
         <div class="jumbotron field-edit">
             <div>
                 <c:if test="${user.id == online_user.id}">
-                    <a href="/add_card">
-                        <button type="button" class="btn btn-lg edit-button"><span class="glyphicon glyphicon-plus"></span></button>
+                    <a href="/add_card" class="btn btn-lg edit-button">
+                        <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </c:if>
                 <h1>Cards:</h1>

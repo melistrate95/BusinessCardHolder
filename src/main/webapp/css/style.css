@@ -1,0 +1,63 @@
+.contact {
+    background-color: #ededed;
+    margin-bottom: 10px;
+    z-index: 100;
+}
+
+.work-space{
+    width: 530px;
+    
+}
+
+.contactCards {
+    font-size: 14px;
+    background-color: none;
+    color: black;
+}
+
+.card {
+    position: relative;
+    background-color: #5f5f5f;
+    height: 300px;
+    padding: 0px;
+}
+
+
+.edit {
+    border-width: 1px;
+    border-style: dotted;
+    border-color: #25ffff;
+    z-index: 99;
+}
+
+.properties {
+    background-color: #ededed;
+/*    height: 300px;*/
+}
+
+.prop {
+    margin-bottom: 10px;
+}
+
+.prop span {
+    width: 80px;
+} 
+
+
+.basket {
+    background-color: #767676;
+    height: 120px; 
+    z-index: 50;
+}
+
+.delete-btn {
+    font-size: 50px;
+    margin: 35px 40%;
+}
+
+.hovered {
+    background-color: #838383;
+    border-width: 2px;
+    border-style: solid; 
+    border-color: #343434;
+}

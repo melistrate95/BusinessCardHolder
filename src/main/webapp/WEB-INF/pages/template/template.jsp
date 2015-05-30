@@ -9,17 +9,25 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-    <!DOCTYPE html>
     <%@ page isELIgnored="false" %>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>
         <tiles:insertAttribute name="title" />
     </title>
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <link rel='stylesheet' href='/css/bootstrap.min.css'>
+    <link href="css/style.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/drag_and_drop.js"></script>
 </head>
 <body>
     <tiles:insertAttribute name="navigation_bar" />
