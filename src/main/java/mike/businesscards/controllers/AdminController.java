@@ -43,23 +43,4 @@ public class AdminController {
         this.userDaoImpl.removeUser(id);
         return "redirect:/manage";
     }
-
-    @RequestMapping(value = "/manage/edit/id{id}", method = RequestMethod.GET)
-    public String editUserPage(@PathVariable Integer id, ModelMap model) {
-        (new UserSessionService()).addMailAttribute(model);
-        User user = this.userDaoImpl.getUserById(id);
-        model.addAttribute("user", user);
-        return "user_edit";
-    }
-
-    @RequestMapping(value = "/manage/save", method = RequestMethod.POST)
-    public String saveUserChange(ModelMap model, User user) {
-        User fullUser = this.userDaoImpl.getUserByEmail(user.getMail());
-        fullUser.setPassword(user.getPassword());
-        fullUser.setName(user.getName());
-        fullUser.setMail(user.getMail());
-        fullUser.setRole(user.getRole());
-        this.userDaoImpl.addUser(fullUser);
-        return "redirect:/manage";
-    }
 }

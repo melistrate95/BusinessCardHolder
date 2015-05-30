@@ -13,13 +13,18 @@
         Personal
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
-        <form method="post" action="/manage/save" commandName="userSave" >
-            <input type="text" id="name" name="name" class="form-control" value="${user.name}">
-            <input type="text" id="mail" name="mail" class="form-control" value="${user.mail}">
-            <input type="text" id="password" name="password" class="form-control" value="${user.password}">
-            <input type="text" id="role" name="role" class="form-control" value="${user.role}">
-            <br>
-            <button class="btn btn-primary" type="submit" name="save">Save</button>
-        </form>
+        <div class="jumbotron">
+            <div class="page-header">
+                <h2>  Edit Personal Data. </h2>
+            </div>
+            <form method="post" action="/save" commandName="userSave" >
+                <input type="text" id="name" name="name" class="form-control" value="${user.name}">
+                <input type="text" id="mail" name="mail" class="form-control" value="${user.mail}">
+                <input type="text" id="password" name="password" class="form-control" value="${user.password}">
+                <input type="text" id="role" name="role" class="form-control" value="${user.role}">
+                <br>
+                <button class="btn btn-primary" type="submit" name="save">Save</button>
+            </form>
+        </div>
     </tiles:putAttribute>
 </tiles:insertDefinition>

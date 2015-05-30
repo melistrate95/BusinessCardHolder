@@ -8,6 +8,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page isELIgnored="false" %>
+<link rel='stylesheet' href='/css/locale_button.css'>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -58,14 +59,14 @@
                     </li>
                 </sec:authorize>
                 <li>
-                    <a href="?locale=en">
-                        <button class="btn-sm">en</button>
-                    </a>
-                </li>
-                <li>
-                    <a href="?locale=ru">
-                        <button class="btn-sm">ru</button>
-                    </a>
+                    <div class="btn-toolbar locale-button">
+                        <a href="?locale=en">
+                            <button class="btn-sm">en</button>
+                        </a>
+                        <a href="?locale=ru">
+                            <button class="btn-sm">ru</button>
+                        </a>
+                    </div>
                 </li>
             </ul>
         </div>

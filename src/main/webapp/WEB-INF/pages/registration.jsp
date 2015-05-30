@@ -11,7 +11,7 @@
         Registration
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
             <div class="page-header">
                 <h2>  Registration. </h2>
             </div>

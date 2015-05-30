@@ -33,7 +33,6 @@
                         <td>${tab.role}</td>
                         <td><a href="http://localhost:8080/id${tab.id}">id${tab.id}</a> </td>
                         <td><a href="/manage/delete/id${tab.id}">Delete</a> </td>
-                        <td><a href="/manage/edit/id${tab.id}">Edit</a> </td>
                     </tr>
                 </c:forEach>
             </tbody>

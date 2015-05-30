@@ -17,12 +17,14 @@ public class UserSessionService {
     @Autowired
     private UserDaoImpl userDaoImpl;
 
-    public void addMailAttribute(ModelMap model) {
+    public String addMailAttribute(ModelMap model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetails = (UserDetails) auth.getPrincipal();
             String email = userDetails.getUsername();
             model.addAttribute("email", email);
+            return email;
         }
+        return null;
     }
 }

@@ -1,15 +1,15 @@
 package mike.businesscards.model;
 
 import mike.businesscards.model.enums.UserRoleEnum;
+import org.hibernate.annotations.IndexColumn;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Mike on 10/05/2015.
@@ -23,6 +23,7 @@ public class User implements Serializable, UserDetails {
     @GeneratedValue
     private Integer id;
 
+    @Size(min=2, max=30)
     @Column(name = "NAME", nullable = false)
     private String name;
 
@@ -34,6 +35,31 @@ public class User implements Serializable, UserDetails {
 
     @Column(name = "ROLE")
     private String role;
+
+    @Column(name = "ISCONFIRM")
+    private Integer isConfirm;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user",cascade=CascadeType.ALL)
+    private Set<Contact> contacts;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user",cascade=CascadeType.ALL)
+    private Set<Card> cards;
+
+    public Set<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(Set<Card> cards) {
+        this.cards = cards;
+    }
+
+    public Set<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
+    }
 
     public String getRole() {
         return role;
@@ -126,4 +152,11 @@ public class User implements Serializable, UserDetails {
         return mail;
     }
 
+    public Integer getIsConfirm() {
+        return isConfirm;
+    }
+
+    public void setIsConfirm(Integer isConfirm) {
+        this.isConfirm = isConfirm;
+    }
 }

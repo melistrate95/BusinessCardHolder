@@ -3,6 +3,7 @@ package mike.businesscards.controllers;
 import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.User;
 import mike.businesscards.model.enums.UserRoleEnum;
+import mike.businesscards.service.EmailSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,7 +41,11 @@ public class RegistrationController {
         }
         if (!this.userDaoImpl.findUserByEmail(user.getMail())) {
             appointRole(user);
+            user.setIsConfirm(0);
             this.userDaoImpl.addUser(user);
+            EmailSender sslSender = new EmailSender("youngcompanysupp@gmail.com", "tenmillion");
+            sslSender.send("Welcome to Young", "Your account has been created — now it will be easier than ever to share and connect with your friends." +
+                    "\nhttp://localhost:8080/confirm/gencode" + user.getId(), "youngcompanysupp@gmail.com", user.getMail());
         }
         return "login";
     }

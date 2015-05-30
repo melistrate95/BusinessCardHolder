@@ -1,0 +1,15 @@
+.edit-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.add-button {
+    position: absolute;
+    top: 20px;
+    right: 80px;
+}
+
+.field-edit {
+    position: relative;
+}

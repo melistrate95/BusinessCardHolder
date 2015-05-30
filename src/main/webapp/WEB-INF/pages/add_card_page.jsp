@@ -1,16 +1,18 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
-
-
+<%--
+  Created by IntelliJ IDEA.
+  User: Mike
+  Date: 28/05/2015
+  Time: 22:39
+  To change this template use File | Settings | File Templates.
+--%>
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="title">
-        Home
+        CardEditor
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
         <div class="jumbotron">
-            <h1>Business Card Holder</h1>
-            <h2>We present our new app! This application is designed to create and store cards.</h2>
-            <h2>May the Force be with you!</h2>
-            <img src="/resources/cardLogo.jpg">
+
         </div>
     </tiles:putAttribute>
 </tiles:insertDefinition>
