@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="BusinessCardHolder:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="businesscards.war">
-      <element id="artifact" artifact-name="BusinessCardHolder:war exploded" />
-    </root>
-  </artifact>
-</component>
