@@ -38,7 +38,6 @@ public class UserDaoImpl {
         Query q = this.sessionFactory.getCurrentSession().createQuery("FROM User where id=:id");
         q.setInteger("id", id);
         User user = (User) q.uniqueResult();
-        //User user = (User) (this.sessionFactory.getCurrentSession().load(User.class, id));
         if (null != user) {
             return true;
         }

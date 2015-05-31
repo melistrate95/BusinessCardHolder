@@ -45,21 +45,8 @@ public class User implements Serializable, UserDetails {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user",cascade=CascadeType.ALL)
     private Set<Card> cards;
 
-    public Set<Card> getCards() {
-        return cards;
-    }
-
-    public void setCards(Set<Card> cards) {
-        this.cards = cards;
-    }
-
-    public Set<Contact> getContacts() {
-        return contacts;
-    }
-
-    public void setContacts(Set<Contact> contacts) {
-        this.contacts = contacts;
-    }
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user",cascade=CascadeType.ALL)
+    private Set<Jobs> jobs;
 
     public String getRole() {
         return role;
@@ -72,7 +59,6 @@ public class User implements Serializable, UserDetails {
     public String getName() {
         return name;
     }
-
 
     public String getMail() {
         return mail;
@@ -96,6 +82,30 @@ public class User implements Serializable, UserDetails {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Set<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
+    }
+
+    public Set<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(Set<Card> cards) {
+        this.cards = cards;
+    }
+
+    public Set<Jobs> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(Set<Jobs> jobs) {
+        this.jobs = jobs;
     }
 
     public User(String mail, String password) {

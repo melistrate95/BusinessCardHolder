@@ -2,9 +2,11 @@ package mike.businesscards.controllers;
 
 import mike.businesscards.dao.CardDaoImpl;
 import mike.businesscards.dao.ContactDaoImpl;
+import mike.businesscards.dao.JobsDaoImpl;
 import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.Card;
 import mike.businesscards.model.Contact;
+import mike.businesscards.model.Jobs;
 import mike.businesscards.model.User;
 import mike.businesscards.model.enums.UserRoleEnum;
 import mike.businesscards.service.UserSessionService;
@@ -32,12 +34,14 @@ public class PersonalController {
     private UserDaoImpl userDaoImpl;
     private ContactDaoImpl contactDaoImpl;
     private CardDaoImpl cardDaoImpl;
+    private JobsDaoImpl jobsDaoImpl;
 
     @Autowired
-    public PersonalController(UserDaoImpl userDaoImpl, ContactDaoImpl contactDaoImpl, CardDaoImpl cardDaoImpl){
+    public PersonalController(UserDaoImpl userDaoImpl, ContactDaoImpl contactDaoImpl, CardDaoImpl cardDaoImpl, JobsDaoImpl jobsDaoImpl){
         this.userDaoImpl = userDaoImpl;
         this.contactDaoImpl = contactDaoImpl;
         this.cardDaoImpl = cardDaoImpl;
+        this.jobsDaoImpl = jobsDaoImpl;
     }
 
     @RequestMapping(value = "/personal", method = RequestMethod.GET)
@@ -64,6 +68,8 @@ public class PersonalController {
             model.addAttribute("online_user", onlineUser);
             ArrayList<Contact> contacts = (ArrayList<Contact>) this.contactDaoImpl.listUserContact(thisUser.getId());
             model.addAttribute("contacts", contacts);
+            ArrayList<Jobs> jobs = (ArrayList<Jobs>) this.jobsDaoImpl.listUserJobs(thisUser.getId());
+            model.addAttribute("jobs", jobs);
             ArrayList<Card> cards = (ArrayList<Card>) this.cardDaoImpl.listUserCard(thisUser.getId());
             model.addAttribute("cards", cards);
             return "personal";

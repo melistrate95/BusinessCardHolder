@@ -20,6 +20,7 @@
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <link rel='stylesheet' href='/css/bootstrap.min.css'>
+
 </head>
 <body>
     <tiles:insertAttribute name="navigation_bar" />
@@ -30,5 +31,6 @@
             </div>
         </div>
     </div>
+    <tiles:insertAttribute name="footer" />
 </body>
 </html>

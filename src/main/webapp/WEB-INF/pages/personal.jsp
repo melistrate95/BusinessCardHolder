@@ -23,8 +23,8 @@
             </c:if>
             <div>
                 <h1>Personal data:</h1>
-                <h2>${user.name}</h2>
-                <h3>${user.mail}</h3>
+                <h2>Name: ${user.name}</h2>
+                <h2>Email: ${user.mail}</h2>
             </div>
         </div>
         <div class="jumbotron field-edit">
@@ -37,6 +37,21 @@
                 <h1>Contacts:</h1>
                 <c:forEach items="${contacts}" var="contact">
                     <h2>${contact.type}: ${contact.content}</h2>
+                </c:forEach>
+            </div>
+        </div>
+        <div class="jumbotron field-edit">
+            <c:if test="${user.id == online_user.id || online_user.role == 'ROLE_ADMIN'}">
+                <a href="/add_job">
+                    <button type="button" class="btn btn-lg edit-button"><span class="glyphicon glyphicon-plus"></span></button>
+                </a>
+            </c:if>
+            <div>
+                <h1>Jobs:</h1>
+                <c:forEach items="${jobs}" var="job">
+                    <h2>Company: ${job.company}</h2>
+                    <h2>Post: ${job.post}</h2>
+                    <br><br>
                 </c:forEach>
             </div>
         </div>
