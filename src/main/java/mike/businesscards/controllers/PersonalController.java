@@ -57,15 +57,19 @@ public class PersonalController {
 
     @RequestMapping(value = "/id{id}")
     public String goToAccount(@PathVariable Integer id, ModelMap model) {
-        User thisUser = this.userDaoImpl.getUserById(id);
-        model.addAttribute("user", thisUser);
-        User onlineUser = this.userDaoImpl.getUserByEmail((new UserSessionService()).addMailAttribute(model));
-        model.addAttribute("online_user", onlineUser);
-        ArrayList<Contact> contacts = (ArrayList<Contact>) this.contactDaoImpl.listUserContact(thisUser.getId());
-        model.addAttribute("contacts", contacts);
-        ArrayList<Card> cards = (ArrayList<Card>) this.cardDaoImpl.listUserCard(thisUser.getId());
-        model.addAttribute("cards", cards);
-        return "personal";
+        if (this.userDaoImpl.findUserById(id)) {
+            User thisUser = this.userDaoImpl.getUserById(id);
+            model.addAttribute("user", thisUser);
+            User onlineUser = this.userDaoImpl.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+            model.addAttribute("online_user", onlineUser);
+            ArrayList<Contact> contacts = (ArrayList<Contact>) this.contactDaoImpl.listUserContact(thisUser.getId());
+            model.addAttribute("contacts", contacts);
+            ArrayList<Card> cards = (ArrayList<Card>) this.cardDaoImpl.listUserCard(thisUser.getId());
+            model.addAttribute("cards", cards);
+            return "personal";
+        }
+        (new UserSessionService()).addMailAttribute(model);
+        return "page_not_found";
     }
 
     @RequestMapping(value = "/edit/id{id}", method = RequestMethod.GET)
@@ -77,6 +81,7 @@ public class PersonalController {
             return "redirect:/id{id}";
         }
         model.addAttribute("user", user);
+        model.addAttribute("online_user", this.userDaoImpl.getUserByEmail(onlineUserEmail));
         return "user_edit";
     }
 
@@ -86,10 +91,12 @@ public class PersonalController {
         fullUser.setPassword(user.getPassword());
         fullUser.setName(user.getName());
         fullUser.setMail(user.getMail());
-        fullUser.setRole(user.getRole());
+        if (fullUser.getRole().equals(UserRoleEnum.ROLE_ADMIN)) {
+            fullUser.setRole(user.getRole());
+        }
         this.userDaoImpl.addUser(fullUser);
         model.addAttribute("id", fullUser.getId());
-        return "redirect:/edit/id{id}";
+        return "redirect:/personal";
     }
 
 }
