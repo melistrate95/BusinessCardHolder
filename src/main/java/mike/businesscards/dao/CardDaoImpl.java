@@ -34,7 +34,7 @@ public class CardDaoImpl {
         query.setInteger("id", id);
         Card card = (Card) query.uniqueResult();
         return card;
-    }
+	}
 
     public Card getCardByName(String name) {
         Query query = this.sessionFactory.getCurrentSession().createQuery("FROM Card WHERE name=:name");
