@@ -13,7 +13,7 @@
 <head>
     <!DOCTYPE html>
     <%@ page isELIgnored="false" %>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>
         <tiles:insertAttribute name="title" />
     </title>
@@ -31,6 +31,5 @@
             </div>
         </div>
     </div>
-    <tiles:insertAttribute name="footer" />
 </body>
 </html>
