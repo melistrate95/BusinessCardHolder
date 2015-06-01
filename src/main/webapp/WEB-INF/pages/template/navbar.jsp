@@ -21,11 +21,11 @@
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        Theme <span class="caret"></span>
+                        <spring:message code="locale.theme"/> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Dark</a></li>
-                        <li><a href="#">Light</a></li>
+                        <li><a href="#"><spring:message code="locale.dark"/></a></li>
+                        <li><a href="#"><spring:message code="locale.light"/></a></li>
                     </ul>
                 </li>
             </ul>

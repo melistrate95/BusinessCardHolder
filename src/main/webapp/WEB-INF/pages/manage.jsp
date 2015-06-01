@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <tiles:insertDefinition name="defaultTemplate">
@@ -17,11 +18,11 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Role</th>
-                <th>Reference</th>
+                <th><spring:message code="locale.name"/></th>
+                <th><spring:message code="locale.email"/></th>
+                <th><spring:message code="locale.password"/></th>
+                <th><spring:message code="locale.role"/></th>
+                <th><spring:message code="locale.reference"/></th>
             </tr>
             </thead>
             <tbody>
@@ -32,7 +33,7 @@
                         <td>${tab.password}</td>
                         <td>${tab.role}</td>
                         <td><a href="http://localhost:8080/id${tab.id}">id${tab.id}</a> </td>
-                        <td><a href="/manage/delete/id${tab.id}">Delete</a> </td>
+                        <td><a href="/manage/delete/id${tab.id}"><spring:message code="locale.delete"/></a> </td>
                     </tr>
                 </c:forEach>
             </tbody>
