@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
 
 <tiles:insertDefinition name="defaultTemplate">
@@ -21,7 +23,9 @@
                 <input type="text" id="name" name="name" class="form-control" value="${user.name}">
                 <input type="text" id="mail" name="mail" class="form-control" value="${user.mail}">
                 <input type="text" id="password" name="password" class="form-control" value="${user.password}">
-                <input type="text" id="role" name="role" class="form-control" value="${user.role}">
+                <c:if test="${online_user.role == 'ROLE_ADMIN'}">
+                    <input type="text" id="role" name="role" class="form-control" value="${user.role}">
+                </c:if>
                 <br>
                 <button class="btn btn-primary" type="submit" name="save">Save</button>
             </form>

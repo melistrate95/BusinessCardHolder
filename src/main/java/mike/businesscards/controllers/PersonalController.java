@@ -2,9 +2,11 @@ package mike.businesscards.controllers;
 
 import mike.businesscards.dao.CardDaoImpl;
 import mike.businesscards.dao.ContactDaoImpl;
+import mike.businesscards.dao.JobsDaoImpl;
 import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.Card;
 import mike.businesscards.model.Contact;
+import mike.businesscards.model.Jobs;
 import mike.businesscards.model.User;
 import mike.businesscards.model.enums.UserRoleEnum;
 import mike.businesscards.service.UserSessionService;
@@ -32,12 +34,14 @@ public class PersonalController {
     private UserDaoImpl userDaoImpl;
     private ContactDaoImpl contactDaoImpl;
     private CardDaoImpl cardDaoImpl;
+    private JobsDaoImpl jobsDaoImpl;
 
     @Autowired
-    public PersonalController(UserDaoImpl userDaoImpl, ContactDaoImpl contactDaoImpl, CardDaoImpl cardDaoImpl){
+    public PersonalController(UserDaoImpl userDaoImpl, ContactDaoImpl contactDaoImpl, CardDaoImpl cardDaoImpl, JobsDaoImpl jobsDaoImpl){
         this.userDaoImpl = userDaoImpl;
         this.contactDaoImpl = contactDaoImpl;
         this.cardDaoImpl = cardDaoImpl;
+        this.jobsDaoImpl = jobsDaoImpl;
     }
 
     @RequestMapping(value = "/personal", method = RequestMethod.GET)
@@ -57,15 +61,21 @@ public class PersonalController {
 
     @RequestMapping(value = "/id{id}")
     public String goToAccount(@PathVariable Integer id, ModelMap model) {
-        User thisUser = this.userDaoImpl.getUserById(id);
-        model.addAttribute("user", thisUser);
-        User onlineUser = this.userDaoImpl.getUserByEmail((new UserSessionService()).addMailAttribute(model));
-        model.addAttribute("online_user", onlineUser);
-        ArrayList<Contact> contacts = (ArrayList<Contact>) this.contactDaoImpl.listUserContact(thisUser.getId());
-        model.addAttribute("contacts", contacts);
-        ArrayList<Card> cards = (ArrayList<Card>) this.cardDaoImpl.listUserCard(thisUser.getId());
-        model.addAttribute("cards", cards);
-        return "personal";
+        if (this.userDaoImpl.findUserById(id)) {
+            User thisUser = this.userDaoImpl.getUserById(id);
+            model.addAttribute("user", thisUser);
+            User onlineUser = this.userDaoImpl.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+            model.addAttribute("online_user", onlineUser);
+            ArrayList<Contact> contacts = (ArrayList<Contact>) this.contactDaoImpl.listUserContact(thisUser.getId());
+            model.addAttribute("contacts", contacts);
+            ArrayList<Jobs> jobs = (ArrayList<Jobs>) this.jobsDaoImpl.listUserJobs(thisUser.getId());
+            model.addAttribute("jobs", jobs);
+            ArrayList<Card> cards = (ArrayList<Card>) this.cardDaoImpl.listUserCard(thisUser.getId());
+            model.addAttribute("cards", cards);
+            return "personal";
+        }
+        (new UserSessionService()).addMailAttribute(model);
+        return "page_not_found";
     }
 
     @RequestMapping(value = "/edit/id{id}", method = RequestMethod.GET)
@@ -77,6 +87,7 @@ public class PersonalController {
             return "redirect:/id{id}";
         }
         model.addAttribute("user", user);
+        model.addAttribute("online_user", this.userDaoImpl.getUserByEmail(onlineUserEmail));
         return "user_edit";
     }
 
@@ -86,10 +97,12 @@ public class PersonalController {
         fullUser.setPassword(user.getPassword());
         fullUser.setName(user.getName());
         fullUser.setMail(user.getMail());
-        fullUser.setRole(user.getRole());
+        if (fullUser.getRole().equals(UserRoleEnum.ROLE_ADMIN)) {
+            fullUser.setRole(user.getRole());
+        }
         this.userDaoImpl.addUser(fullUser);
         model.addAttribute("id", fullUser.getId());
-        return "redirect:/edit/id{id}";
+        return "redirect:/personal";
     }
 
 }

@@ -29,6 +29,6 @@ public class ConfirmEmailController {
         User thisUser = this.userDaoImpl.getUserById(id);
         thisUser.setIsConfirm(1);
         this.userDaoImpl.addUser(thisUser);
-        return "redirect:/";
+        return "redirect:/login";
     }
 }

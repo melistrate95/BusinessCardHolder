@@ -35,7 +35,9 @@ public class UserDaoImpl {
     }
 
     public boolean findUserById(Integer id) {
-        User user = (User) (this.sessionFactory.getCurrentSession().load(User.class, id));
+        Query q = this.sessionFactory.getCurrentSession().createQuery("FROM User where id=:id");
+        q.setInteger("id", id);
+        User user = (User) q.uniqueResult();
         if (null != user) {
             return true;
         }
