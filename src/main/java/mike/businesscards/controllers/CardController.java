@@ -2,9 +2,11 @@ package mike.businesscards.controllers;
 
 import mike.businesscards.dao.CardDaoImpl;
 import mike.businesscards.dao.ContactDaoImpl;
+import mike.businesscards.dao.JobsDaoImpl;
 import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.Card;
 import mike.businesscards.model.Contact;
+import mike.businesscards.model.Jobs;
 import mike.businesscards.model.User;
 import mike.businesscards.service.UserSessionService;
 import org.json.simple.JSONObject;
@@ -24,6 +26,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Created by Mike on 28/05/2015.
@@ -35,12 +38,15 @@ public class CardController {
     private UserDaoImpl userDaoImpl;
     private ContactDaoImpl contactDaoImpl;
     private CardDaoImpl cardDaoImpl;
+    private JobsDaoImpl jobsDaoImpl;
 
     @Autowired
-    public CardController(UserDaoImpl userDaoImpl, ContactDaoImpl contactDaoImpl, CardDaoImpl cardDaoImpl){
+    public CardController(UserDaoImpl userDaoImpl, ContactDaoImpl contactDaoImpl,
+        CardDaoImpl cardDaoImpl, JobsDaoImpl jobsDaoImpl){
         this.userDaoImpl = userDaoImpl;
         this.contactDaoImpl = contactDaoImpl;
         this.cardDaoImpl = cardDaoImpl;
+        this.jobsDaoImpl = jobsDaoImpl;
     }
 
     @RequestMapping(value = "/id{id}/add_card", method = RequestMethod.GET)
@@ -49,6 +55,8 @@ public class CardController {
         model.addAttribute("user", onlineUser);
         ArrayList<Contact> contacts = (ArrayList<Contact>) this.contactDaoImpl.listUserContact(id);
         model.addAttribute("contacts", contacts);
+        ArrayList<Jobs> jobs = (ArrayList<Jobs>) this.jobsDaoImpl.listUserJobs(id);
+        model.addAttribute("jobs", jobs);
         return "add_card_page";
     }
 

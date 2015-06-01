@@ -21,9 +21,14 @@
             <div class="contact">
                 <h1>${user.name}</h1>
             </div>
-            <div class="contact">
-                <h3>manager</h3>
-            </div>
+            <c:forEach items="${jobs}" var="job">
+                <div class="contact">
+                    <h3><spring:message code="locale.company"/>: ${job.company}</h3>
+                </div>
+                <div class="contact">
+                    <h4><spring:message code="locale.post"/>: ${job.post}</h4>
+                </div>
+            </c:forEach>
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-3 col-md-3 ">
