@@ -35,15 +35,3 @@ $(function() {
     });
 });
 
-function addContact(ui, arr) {
-    arr.push({
-        "text": $(ui)[0].innerText,
-        "font": $(ui).css( 'font-size' ),
-        "color": $(ui).css( 'color' ),
-        "bgcolor": $(ui).css( 'backgroundColor' ),
-        "width": $(ui).outerWidth(),
-        "height": $(ui).outerHeight(),
-        "xposition": $(ui).position().left,
-        "yposition": $(ui).position().top
-    });
-};
