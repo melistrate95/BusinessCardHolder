@@ -29,6 +29,16 @@ public class CardDaoImpl {
         this.sessionFactory.getCurrentSession().saveOrUpdate(card);
     }
 
+    public boolean findCardByName(String name) {
+        Query q = this.sessionFactory.getCurrentSession().createQuery("FROM Card where name=:name");
+        q.setString("name", name);
+        Card card = (Card) q.uniqueResult();
+        if (null != card) {
+            return true;
+        }
+        return false;
+    }
+
     public Card getCardByName(String name) {
         Query query = this.sessionFactory.getCurrentSession().createQuery("FROM Card WHERE name=:name");
         query.setString("name", name);
