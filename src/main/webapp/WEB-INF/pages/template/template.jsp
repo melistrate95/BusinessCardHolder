@@ -18,16 +18,16 @@
     <title>
         <tiles:insertAttribute name="title" />
     </title>
+
     <script type="text/javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <link rel='stylesheet' href='/css/bootstrap.min.css'>
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/drag_and_drop.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.js"></script>
+    <tiles:insertAttribute name="scripts"/>
 </head>
 <body>
     <tiles:insertAttribute name="navigation_bar" />

@@ -1,5 +1,6 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: SAB
@@ -9,13 +10,16 @@
 --%>
 <%@ page isELIgnored="false"%>
 <tiles:insertDefinition name="defaultTemplate">
+    <tiles:putAttribute name="scripts">
+        <script type="text/javascript" src="/js/drag_and_drop.js"></script>
+    </tiles:putAttribute>
     <tiles:putAttribute name="title">
         CardEditor
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
         <div class="jumbotron">
             <div class="contact">
-                <h1>Sergey Bilida</h1>
+                <h1>${user.name}</h1>
             </div>
             <div class="contact">
                 <h3>manager</h3>
@@ -24,13 +28,15 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-3 col-md-3 ">
                 <ul id="contacts" class="list-unstyled">
-                    <li>
-                        <div class="form-group-lg contact">
-                            <div class="input-group">
-                                <span class="input-group-addon">Phone</span>
-                                <div class="form-control">+375333759645</div></div>
-                        </div>
-                    </li>
+                    <c:forEach items="${contacts}" var="contact">
+                        <li>
+                            <div class="form-group-lg contact">
+                                <div class="input-group">
+                                    <span class="input-group-addon">${contact.type}</span>
+                                    <div class="form-control">${contact.content}</div></div>
+                            </div>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="col-lg-9 col-md-9 ">
@@ -41,53 +47,58 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-10 col-sm-8 col-xs-8">
-                    <form action="contr" class="form-group">
-                        <div class="properties">
-                            <div class="input-group input-group-sm prop">
-                                <span class="input-group-addon"><spring:message code="locale.text"/></span>
-                                <input type="text" class="form-control" id="textContacts"
-                                       placeholder="<spring:message code="locale.text"/>"/>
-                            </div>
-                            <div class="input-group input-group-sm prop">
-                                <span class="input-group-addon"><spring:message code="locale.font"/></span>
-                                <input type="text" class="form-control" id="fontSize"
-                                       placeholder="<spring:message code="locale.font"/>"/>
-                            </div>
-                            <div class="input-group input-group-sm prop">
-                                <span class="input-group-addon"><spring:message code="locale.color"/></span>
-                                <input type="text" class="form-control" id="fontColor"
-                                       placeholder="<spring:message code="locale.color"/>"/>
-                            </div>
-                            <div class="input-group input-group-sm prop">
-                                <span class="input-group-addon"><spring:message code="locale.bgcolor"/></span>
-                                <input type="text" class="form-control" id="backgroundColor"
-                                       placeholder="<spring:message code="locale.bgcolor"/>"/>
-                            </div>
-                            <div class="input-group input-group-sm prop">
-                                <span class="input-group-addon"><spring:message code="locale.width"/></span>
-                                <input type="text" class="form-control" id="width"
-                                       placeholder="<spring:message code="locale.width"/>"/>
-                            </div>
-                            <div class="input-group input-group-sm prop">
-                                <span class="input-group-addon"><spring:message code="locale.height"/></span>
-                                <input type="text" class="form-control" id="height"
-                                       placeholder="<spring:message code="locale.height"/>"/>
-                            </div>
-                            <div class="input-group input-group-sm prop">
-                                <span class="input-group-addon"><spring:message code="locale.xposition"/></span>
-                                <input type="text" class="form-control" id="positionX"
-                                       placeholder="<spring:message code="locale.xposition"/>"/>
-                            </div>
-                            <div class="input-group input-group-sm prop">
-                                <span class="input-group-addon"><spring:message code="locale.yposition"/></span>
-                                <input type="text" class="form-control" id="positionY"
-                                       placeholder="<spring:message code="locale.yposition"/>"/>
-                            </div>
+                    <div class="form-group properties">
+                        <div class="input-group input-group-sm prop">
+                            <span class="input-group-addon"><spring:message code="locale.text"/></span>
+                            <input type="text" class="form-control" id="textContacts"
+                                   placeholder="<spring:message code="locale.text"/>"/>
                         </div>
-                        <dutton type="button" id="submitBtn" class="btn btn-primary btn-lg">
+                        <div class="input-group input-group-sm prop">
+                            <span class="input-group-addon"><spring:message code="locale.font"/></span>
+                            <input type="text" class="form-control" id="fontSize"
+                                   placeholder="<spring:message code="locale.font"/>"/>
+                        </div>
+                        <div class="input-group input-group-sm prop">
+                            <span class="input-group-addon"><spring:message code="locale.color"/></span>
+                            <input type="text" class="form-control" id="fontColor"
+                                   placeholder="<spring:message code="locale.color"/>"/>
+                        </div>
+                        <div class="input-group input-group-sm prop">
+                            <span class="input-group-addon"><spring:message code="locale.bgcolor"/></span>
+                            <input type="text" class="form-control" id="backgroundColor"
+                                   placeholder="<spring:message code="locale.bgcolor"/>"/>
+                        </div>
+                        <div class="input-group input-group-sm prop">
+                            <span class="input-group-addon"><spring:message code="locale.width"/></span>
+                            <input type="text" class="form-control" id="width"
+                                   placeholder="<spring:message code="locale.width"/>"/>
+                        </div>
+                        <div class="input-group input-group-sm prop">
+                            <span class="input-group-addon"><spring:message code="locale.height"/></span>
+                            <input type="text" class="form-control" id="height"
+                                   placeholder="<spring:message code="locale.height"/>"/>
+                        </div>
+                        <div class="input-group input-group-sm prop">
+                            <span class="input-group-addon"><spring:message code="locale.xposition"/></span>
+                            <input type="text" class="form-control" id="positionX"
+                                   placeholder="<spring:message code="locale.xposition"/>"/>
+                        </div>
+                        <div class="input-group input-group-sm prop">
+                            <span class="input-group-addon"><spring:message code="locale.yposition"/></span>
+                            <input type="text" class="form-control" id="positionY"
+                                   placeholder="<spring:message code="locale.yposition"/>"/>
+                        </div>
+                    </div>
+                    <div class="form-inline">
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon"><spring:message code="locale.name"/></span>
+                            <input type="text" class="form-control" id="nameCard"
+                                   placeholder="<spring:message code="locale.name"/>"/>
+                        </div>
+                        <dutton type="button" id="submitBtn" class="btn btn-default btn-block btn-lg">
                             <spring:message code="locale.save"/>
                         </dutton>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -43,14 +43,20 @@
         <div class="jumbotron field-edit">
             <div>
                 <c:if test="${user.id == online_user.id}">
-                    <a href="/add_card" class="btn btn-lg edit-button">
+                    <a href="/id${user.id}/add_card" class="btn btn-lg edit-button">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
                 </c:if>
                 <h1>Cards:</h1>
-                <c:forEach items="${cards}" var="card">
-                    <h2>${card.url}</h2>
-                </c:forEach>
+                <ul class="list-unstyled">
+                    <c:forEach items="${cards}" var="card">
+                        <li>
+                            <div class="form-group-lg">
+                                <h2><a href="${card.url}">${card.name}</a></h2>
+                            </div>
+                        </li>
+                    </c:forEach>
+                </ul>
             </div>
         </div>
     </tiles:putAttribute>

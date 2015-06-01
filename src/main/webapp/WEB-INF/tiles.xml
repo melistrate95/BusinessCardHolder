@@ -6,6 +6,7 @@
     <definition name="defaultTemplate" template="/WEB-INF/pages/template/template.jsp">
         <put-attribute name="navigation_bar" value="/WEB-INF/pages/template/navbar.jsp" />
         <put-attribute name="title" value="/WEB-INF/pages/template/title.jsp" />
+        <put-attribute name="scripts" value="/WEB-INF/pages/template/scripts.jsp" />
         <put-attribute name="body" value="/WEB-INF/pages/template/body.jsp" />
     </definition>
 

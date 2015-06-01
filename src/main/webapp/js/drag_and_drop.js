@@ -24,36 +24,38 @@ $(function() {
             $(clearElement());
         }
     });
-    
+
     $( "#submitBtn" ).click(function() {
+        var json = { "name" : $("#nameCard").val(), "contactCards": [] },
+            col = $('.contactCards').length;
+        for( var i = 0; i < col; i++) {
+            addContact($('.contactCards')[i], json.contactCards);
+        }
         $.ajax({
             type: "POST",
-            url: "lalala",
-            dataType: "JSON",
-            data: {
-                
+            url: "/saveCard",
+            dataType: 'json',
+            data: JSON.stringify(json),
+            contentType: 'application/json',
+            mimeType: 'application/json',
+            success: function(data, headers, status) {
+                alert("success" + data);
             },
-            success: function(data) {
-                alert("success");
-            },
-            error: function() {
-                alert("error");
-            },
-            complete: function() {
-                alert("complete");
+            error: function(data, headers, status) {
+                alert("error" + data);
             }
         });
         return false;
     });
-    
-    $( '.properties' ).hide();   
+
+    $( '.properties' ).hide();
     $( '.basket' ).hide();
 });
 
 function handleDropContactEvent( event, ui ) {
     var $contact = $( '<div>' ).attr({ 'class': 'contactCards' });
     $contact.text( ui.draggable.text() );
-    $contact.css( 'position', 'absolute' ); 
+    $contact.css( 'position', 'absolute' );
     $( '.card' ).append( $contact );
     $contact.position({ my: "center", at: "center", of: ".card" });
     $contact.draggable({ containment: '.card', cursor: 'move' });
@@ -63,19 +65,23 @@ function handleDropContactEvent( event, ui ) {
         $( '.basket' ).show( 'slow' );
         $(this).addClass( 'edit' );
         $(this).resizable({
-            resize: updateSize
+            resize: function( event, ui ) {
+                getSize( ui );
+            }
         });
         $(this).draggable({
             containment: '.work-space',
             cursor: 'move',
-            drag: updatePosition
+            drag: function( event, ui ) {
+                getPosition( ui.helper );
+            }
         });
         getProperties( $(this) );
-    }); 
+    });
 };
 
 function handleDropContactCardsEvent( event, ui ) {
-    if ( ui.draggable.hasClass( 'edit' ) ) 
+    if ( ui.draggable.hasClass( 'edit' ) )
         $(clearElement());
     ui.draggable.remove();
     $( '.basket' ).hide( 'fast' );
@@ -90,21 +96,13 @@ function clearElement() {
     $(".edit").css({position:'absolute'});
 };
 
-function updatePosition( event, ui ) {
-    getPosition( ui.helper );
-};
-
-function updateSize( event, ui ) {
-        getSize( ui );
-};
-
 function getProperties( ui ) {
-    $( '#textContacts' ).val( ui[0].innerText );  
-    $( '#fontSize' ).val( ui.css( 'font-size' ) );  
-    $( '#fontColor' ).val( ui.css( 'color' ) );  
-    $( '#backgroundColor' ).val( ui.css( 'backgroundColor' ) );  
-    $( '#width' ).val( ui.outerWidth() );  
-    $( '#height' ).val( ui.outerHeight() ); 
+    $( '#textContacts' ).val( ui[0].innerText );
+    $( '#fontSize' ).val( ui.css( 'font-size' ) );
+    $( '#fontColor' ).val( ui.css( 'color' ) );
+    $( '#backgroundColor' ).val( ui.css( 'backgroundColor' ) );
+    $( '#width' ).val( ui.outerWidth() );
+    $( '#height' ).val( ui.outerHeight() );
     getPosition(ui);
 };
 
@@ -115,19 +113,18 @@ function setProperties() {
     setFontSize();
     setFontColor();
     setBackgroundColor();
-    
 };
 
 function getPosition(ui) {
-    $( '#positionX' ).val( ui.position.left );
-    $( '#positionY' ).val( ui.position.top );
+    $( '#positionX' ).val( ui.position().left );
+    $( '#positionY' ).val( ui.position().top );
 };
 
 function setPosition(){
     var maxX = $( ".card" ).outerWidth( true ) - $( ".edit" ).outerWidth( true ),
         maxY = $( ".card" ).outerHeight( true ) - $( ".edit" ).outerHeight( true ),
         x = parseInt($( '#positionX' ).val()),
-        y = parseInt($( '#positionY' ).val()); 
+        y = parseInt($( '#positionY' ).val());
     x = x > maxX ? maxX : x;
     x = x < 0 ? 0 : x;
     y = y > maxY ? maxY : y;
@@ -153,17 +150,13 @@ function setBackgroundColor() {
     $( ".edit" ).css( 'background-color',  $( '#backgroundColor' ).val() );
 };
 
-function testMethod(event,ui) {
-        setSize();
-};
-
 function setSize() {
     var maxW = $( ".card" ).outerWidth( true ) - $( ".edit" ).position.left,
         maxH = $( ".card" ).outerHeight( true ) - $( ".edit" ).position.top,
         minW = $( ".edit" ).width(),
         minH = $( ".edit" ).height(),
         w = parseInt($( '#width' ).val()),
-        h = parseInt($( '#height' ).val()); 
+        h = parseInt($( '#height' ).val());
     w = w > maxW ? maxW : w;
     h = h > maxH ? maxH : h;
     w = w < minW ? minW : w;
@@ -172,7 +165,7 @@ function setSize() {
 };
 
 function getSize(ui) {
-    $( '#width' ).val( ui.size.width ); 
+    $( '#width' ).val( ui.size.width );
     $( '#height' ).val( ui.size.height );
 };
 
