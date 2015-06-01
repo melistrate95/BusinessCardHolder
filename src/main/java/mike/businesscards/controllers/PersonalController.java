@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,7 +47,7 @@ public class PersonalController {
     }
 
     @RequestMapping(value = "/personal", method = RequestMethod.GET)
-    public String getPersonal(ModelMap model) {
+    public String getPersonal(ModelMap model, HttpServletRequest httpServletRequest) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetails = (UserDetails) auth.getPrincipal();
@@ -53,6 +55,9 @@ public class PersonalController {
             User nowUser = this.userDaoImpl.getUserByEmail(email);
             if (nowUser.getIsConfirm() == 0) {
                 auth.setAuthenticated(false);
+                HttpSession httpSession = httpServletRequest.getSession();
+                httpSession.invalidate();
+                return "redirect:/login";
             }
             model.addAttribute("id", nowUser.getId());
         }
