@@ -22,11 +22,11 @@ import java.util.Set;
 public class UserDetailsServiceImpl  implements UserDetailsService {
 
     @Autowired
-    private UserDaoImpl userDaoImpl;
+    private UserService userService;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userDaoImpl.getUserByEmail(email);
+        User user = userService.getUserByEmail(email);
         Set<GrantedAuthority> roles = new HashSet();
         roles.add(new SimpleGrantedAuthority(user.getRole()));
         return new org.springframework.security.core.userdetails.User(user.getMail(), user.getPassword(), roles);

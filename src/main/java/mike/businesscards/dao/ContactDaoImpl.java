@@ -17,8 +17,7 @@ import java.util.Set;
  */
 
 @Repository
-@Transactional
-public class ContactDaoImpl {
+public class ContactDaoImpl implements  ContactDao {
 
     @Autowired
     private SessionFactory sessionFactory;

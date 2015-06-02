@@ -17,8 +17,7 @@ import java.util.Set;
  */
 
 @Repository
-@Transactional
-public class JobsDaoImpl {
+public class JobsDaoImpl implements JobsDao{
 
     @Autowired
     private SessionFactory sessionFactory;

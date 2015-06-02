@@ -17,8 +17,7 @@ import java.util.Set;
  */
 
 @Repository
-@Transactional
-public class CardDaoImpl {
+public class CardDaoImpl implements  CardDao{
 
     @Autowired
     private SessionFactory sessionFactory;

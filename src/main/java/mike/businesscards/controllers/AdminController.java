@@ -2,6 +2,8 @@ package mike.businesscards.controllers;
 
 import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.User;
+import mike.businesscards.service.UserService;
+import mike.businesscards.service.UserServiceImpl;
 import mike.businesscards.service.UserSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -23,24 +25,24 @@ import java.util.ArrayList;
 @Controller
 public class AdminController {
 
-    private UserDaoImpl userDaoImpl;
+    private UserService userService;
 
     @Autowired
-    public AdminController(UserDaoImpl userDaoImpl){
-        this.userDaoImpl = userDaoImpl;
+    public AdminController(UserService userService){
+        this.userService = userService;
     }
 
     @RequestMapping(value = "/manage")
     public String getManagePage(ModelMap model) {
         (new UserSessionService()).addMailAttribute(model);
-        ArrayList<User> userArrayList = (ArrayList<User>) this.userDaoImpl.listAll();
+        ArrayList<User> userArrayList = (ArrayList<User>) this.userService.listAll();
         model.addAttribute("array", userArrayList);
         return "manage";
     }
 
     @RequestMapping(value = "/manage/delete/id{id}", method = RequestMethod.GET)
     public String deleteUserPage(@PathVariable Integer id, ModelMap model) {
-        this.userDaoImpl.removeUser(id);
+        this.userService.removeUser(id);
         return "redirect:/manage";
     }
 }
