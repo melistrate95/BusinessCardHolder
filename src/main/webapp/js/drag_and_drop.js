@@ -36,7 +36,8 @@ $(function() {
             url: "/saveCard",
             dataType: 'json',
             data: JSON.stringify(json),
-            contentType: 'application/json',
+            encoding:"UTF-8",
+            contentType: "application/json; charset=UTF-8",
             mimeType: 'application/json',
             success: function(data, headers, status) {
                 alert("success" + data);

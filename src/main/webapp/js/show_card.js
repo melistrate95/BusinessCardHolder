@@ -5,6 +5,8 @@ $(function() {
         $.ajax({
             type: "GET",
             url: $("#name").text().substr() + "/json",
+            encoding:"UTF-8",
+            contentType: "application/json; charset=UTF-8",
             dataType: 'json',
             success: function (json, headers, status) {
                 var col = json.contactCards.length;

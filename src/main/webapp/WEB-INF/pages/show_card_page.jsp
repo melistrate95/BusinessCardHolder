@@ -20,7 +20,7 @@
         <div class="row">
             <div class="jumbotron">
                 <div>
-                    <h2><spring:message code="locale.cardName"/>: <a id="name">${card.name}</a></h2>
+                    <h2><spring:message code="locale.cardName"/>: <span id="name">${card.name}</span></h2>
                     <button type="button" id="showCard" class="btn btn-default btn-lg">
                         <spring:message code="locale.showCard"/>
                     </button>
