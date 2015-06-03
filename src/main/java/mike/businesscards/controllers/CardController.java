@@ -8,7 +8,7 @@ import mike.businesscards.model.Card;
 import mike.businesscards.model.Contact;
 import mike.businesscards.model.Jobs;
 import mike.businesscards.model.User;
-import mike.businesscards.service.UserSessionService;
+import mike.businesscards.service.*;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -35,36 +35,36 @@ import java.util.Set;
 @Controller
 public class CardController {
 
-    private UserDaoImpl userDaoImpl;
-    private ContactDaoImpl contactDaoImpl;
-    private CardDaoImpl cardDaoImpl;
-    private JobsDaoImpl jobsDaoImpl;
+    private UserService userService;
+    private ContactService contactService;
+    private CardService cardService;
+    private JobsService jobsService;
 
     @Autowired
-    public CardController(UserDaoImpl userDaoImpl, ContactDaoImpl contactDaoImpl,
-        CardDaoImpl cardDaoImpl, JobsDaoImpl jobsDaoImpl){
-        this.userDaoImpl = userDaoImpl;
-        this.contactDaoImpl = contactDaoImpl;
-        this.cardDaoImpl = cardDaoImpl;
-        this.jobsDaoImpl = jobsDaoImpl;
+    public CardController(UserService userService, ContactService contactService,
+                          CardService cardService, JobsService jobsService){
+        this.userService = userService;
+        this.contactService = contactService;
+        this.cardService = cardService;
+        this.jobsService = jobsService;
     }
 
     @RequestMapping(value = "/id{id}/add_card", method = RequestMethod.GET)
     public String goToPageCreateCard(@PathVariable Integer id, ModelMap model) {
-        User onlineUser = this.userDaoImpl.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
         model.addAttribute("user", onlineUser);
-        ArrayList<Contact> contacts = (ArrayList<Contact>) this.contactDaoImpl.listUserContact(id);
+        ArrayList<Contact> contacts = (ArrayList<Contact>) this.contactService.listUserContact(id);
         model.addAttribute("contacts", contacts);
-        ArrayList<Jobs> jobs = (ArrayList<Jobs>) this.jobsDaoImpl.listUserJobs(id);
+        ArrayList<Jobs> jobs = (ArrayList<Jobs>) this.jobsService.listUserJobs(id);
         model.addAttribute("jobs", jobs);
         return "add_card_page";
     }
 
     @RequestMapping(value = "/id{id}/cards/{nameCard}", method = RequestMethod.GET)
     public String showCard(@PathVariable Integer id, @PathVariable String nameCard, ModelMap model) {
-        User onlineUser = this.userDaoImpl.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
         model.addAttribute("user", onlineUser);
-        Card card = this.cardDaoImpl.getCardByName(nameCard);
+        Card card = this.cardService.getCardByName(nameCard);
         model.addAttribute("card", card);
         return "show_card_page";
     }
@@ -73,7 +73,7 @@ public class CardController {
     public ResponseEntity<String> getCardJson(@PathVariable Integer id, @PathVariable String nameCard, ModelMap model) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");
-        Card card = this.cardDaoImpl.getCardByName(nameCard);
+        Card card = this.cardService.getCardByName(nameCard);
         return new ResponseEntity<String>(card.getJson(), headers, HttpStatus.OK);
     }
 
@@ -85,7 +85,7 @@ public class CardController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetails = (UserDetails) auth.getPrincipal();
-            User user = this.userDaoImpl.getUserByEmail(userDetails.getUsername());
+            User user = this.userService.getUserByEmail(userDetails.getUsername());
             try {
                 JSONObject object = (JSONObject) (new JSONParser()).parse(json);
                 String nameCard = (String) object.get("name");
@@ -95,7 +95,7 @@ public class CardController {
                     card.setName(nameCard);
                     card.setUrl("/id" + user.getId() + "/cards/"+ nameCard);
                     card.setJson(json);
-                    this.cardDaoImpl.addCard(card, user.getId());
+                    this.cardService.addCard(card, user.getId());
                     return new ResponseEntity<String>(json, headers, HttpStatus.CREATED);
                 }
             } catch (ParseException e) {

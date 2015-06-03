@@ -4,6 +4,9 @@ import mike.businesscards.dao.JobsDaoImpl;
 import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.Jobs;
 import mike.businesscards.model.User;
+import mike.businesscards.service.JobsService;
+import mike.businesscards.service.UserService;
+import mike.businesscards.service.UserServiceImpl;
 import mike.businesscards.service.UserSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,13 +22,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class JobController {
 
-    private UserDaoImpl userDaoImpl;
-    private JobsDaoImpl jobsDaoImpl;
+    private UserService userService;
+    private JobsService jobsService;
 
     @Autowired
-    public JobController(UserDaoImpl userDaoImpl, JobsDaoImpl jobsDaoImpl){
-        this.jobsDaoImpl = jobsDaoImpl;
-        this.userDaoImpl = userDaoImpl;
+    public JobController(UserService userService, JobsService jobsService){
+        this.jobsService = jobsService;
+        this.userService = userService;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/add_job")
@@ -42,8 +45,8 @@ public class JobController {
             model.put("addJob", job);
             return "add_job_page";
         }
-        User onlineUser = this.userDaoImpl.getUserByEmail((new UserSessionService()).addMailAttribute(model));
-        this.jobsDaoImpl.addJob(job, onlineUser.getId());
+        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        this.jobsService.addJob(job, onlineUser.getId());
         return "redirect:/personal";
     }
 }

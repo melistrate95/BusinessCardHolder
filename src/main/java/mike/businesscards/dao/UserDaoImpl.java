@@ -13,8 +13,7 @@ import java.util.List;
  * Created by Mike on 10/05/2015.
  */
 @Repository
-@Transactional
-public class UserDaoImpl {
+public class UserDaoImpl implements UserDao{
 
     @Autowired
     private SessionFactory sessionFactory;

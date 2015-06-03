@@ -4,6 +4,9 @@ import mike.businesscards.dao.ContactDaoImpl;
 import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.Contact;
 import mike.businesscards.model.User;
+import mike.businesscards.service.ContactService;
+import mike.businesscards.service.UserService;
+import mike.businesscards.service.UserServiceImpl;
 import mike.businesscards.service.UserSessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,13 +22,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ContactController {
 
-    private UserDaoImpl userDaoImpl;
-    private ContactDaoImpl contactDaoImpl;
+    private UserService userService;
+    private ContactService contactService;
 
     @Autowired
-    public ContactController(UserDaoImpl userDaoImpl, ContactDaoImpl contactDaoImpl){
-        this.contactDaoImpl = contactDaoImpl;
-        this.userDaoImpl = userDaoImpl;
+    public ContactController(UserService userService, ContactService contactService){
+        this.contactService = contactService;
+        this.userService = userService;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/add_contact")
@@ -42,8 +45,8 @@ public class ContactController {
             model.put("addContact", contact);
             return "add_contact_page";
         }
-        User onlineUser = this.userDaoImpl.getUserByEmail((new UserSessionService()).addMailAttribute(model));
-        this.contactDaoImpl.addContact(contact, onlineUser.getId());
+        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        this.contactService.addContact(contact, onlineUser.getId());
         return "redirect:/personal";
     }
 }
