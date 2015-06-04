@@ -1,9 +1,5 @@
 package mike.businesscards.controllers;
 
-import mike.businesscards.dao.CardDaoImpl;
-import mike.businesscards.dao.ContactDaoImpl;
-import mike.businesscards.dao.JobsDaoImpl;
-import mike.businesscards.dao.UserDaoImpl;
 import mike.businesscards.model.Card;
 import mike.businesscards.model.Contact;
 import mike.businesscards.model.Jobs;
@@ -26,11 +22,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Set;
-
-/**
- * Created by Mike on 28/05/2015.
- */
 
 @Controller
 public class CardController {
@@ -78,7 +69,7 @@ public class CardController {
     }
 
     @RequestMapping(value = "/saveCard", method = RequestMethod.POST,
-            produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> saveCard(@RequestBody String json) {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Type", "application/json");

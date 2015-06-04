@@ -3,10 +3,6 @@ package mike.businesscards.model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * Created by Mike on 27/05/2015.
- */
-
 @Entity
 @Table(name = "cards")
 public class Card implements Serializable {

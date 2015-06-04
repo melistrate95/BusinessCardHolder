@@ -12,10 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-/**
- * Created by Mike on 27/05/2015.
- */
-
 @Repository
 public class CardDaoImpl implements  CardDao{
 

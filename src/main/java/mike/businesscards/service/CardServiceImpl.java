@@ -8,9 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-/**
- * Created by Mike on 02/06/2015.
- */
 @Service
 public class CardServiceImpl implements CardService {
 
@@ -20,11 +17,6 @@ public class CardServiceImpl implements CardService {
     @Transactional
     public void addCard(Card card, Integer userId) {
         cardDao.addCard(card, userId);
-    }
-
-    @Transactional
-    public boolean findCardByName(String name) {
-        return cardDao.findCardByName(name);
     }
 
     @Transactional

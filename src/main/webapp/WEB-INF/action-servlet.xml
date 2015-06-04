@@ -11,11 +11,11 @@
                            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:annotation-config />
-
+    <context:component-scan base-package="mike.businesscards"/>
     <mvc:annotation-driven/>
+
     <mvc:default-servlet-handler/>
     <mvc:resources mapping="/resources/**" location="/resources/" />
-    <context:component-scan base-package="mike.businesscards"/>
 
     <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name = "prefix" value = "/WEB-INF/pages/" />
@@ -35,10 +35,7 @@
         <property name="definitions" value="WEB-INF/tiles.xml"/>
     </bean>
 
-    <import resource="applicationContext-security" />
-    <import resource="applicationContext-database" />
-    <import resource="applicationContext-locale" />
-
-
-
+    <import resource="applicationContext-security.xml" />
+    <import resource="applicationContext-database.xml" />
+    <import resource="applicationContext-locale.xml" />
 </beans>
