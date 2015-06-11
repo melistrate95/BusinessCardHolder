@@ -12,8 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 
 /**
  * Created by Mike on 29/05/2015.
@@ -40,7 +43,10 @@ public class ContactController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/add_contact")
-    public String addContact(ModelMap model, Contact contact, BindingResult result) {
+    public String addContact(ModelMap model, @Valid Contact contact, Errors errors, BindingResult result) {
+        if (errors.hasErrors()) {
+            return "add_contact_page";
+        }
         if (result.hasErrors()) {
             model.put("addContact", contact);
             return "add_contact_page";

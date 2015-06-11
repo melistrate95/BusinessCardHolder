@@ -1,6 +1,8 @@
 package mike.businesscards.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -20,9 +22,13 @@ public class Jobs implements Serializable {
     @JoinColumn(name = "USER_ID")
     private User user;
 
+    @NotNull
+    @Size(min=3, max=16)
     @Column(name = "COMPANY", nullable = false)
     private String company;
 
+    @NotNull
+    @Size(min=3, max=16)
     @Column(name = "POST", nullable = false)
     private String post;
 

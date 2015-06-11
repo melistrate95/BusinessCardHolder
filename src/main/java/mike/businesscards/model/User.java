@@ -2,11 +2,13 @@ package mike.businesscards.model;
 
 import mike.businesscards.model.enums.UserRoleEnum;
 import org.hibernate.annotations.IndexColumn;
+import org.hibernate.validator.constraints.Email;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.*;
@@ -23,13 +25,18 @@ public class User implements Serializable, UserDetails {
     @GeneratedValue
     private Integer id;
 
-    @Size(min=2, max=30)
+    @NotNull
+    @Size(min=3, max=16)
     @Column(name = "NAME", nullable = false)
     private String name;
 
+    @NotNull
+    @Email(message="Email not valid")
     @Column(name = "MAIL", nullable = false)
     private String mail;
 
+    @NotNull
+    @Size(min=5, max=16)
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
