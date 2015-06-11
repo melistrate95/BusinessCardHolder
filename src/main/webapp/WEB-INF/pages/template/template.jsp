@@ -12,14 +12,14 @@
         <tiles:insertAttribute name="title" />
     </title>
 
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <link rel='stylesheet' href='css/bootstrap.min.css'>
-    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="/resources/js/jquery.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/resources/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="/resources/css/style.css">
 
-    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/css/jquery-ui.css">
 
-    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery-ui.js"></script>
     <tiles:insertAttribute name="scripts"/>
 </head>
 <body>
@@ -27,7 +27,7 @@
     <div class="container" style="padding-top: 80px">
         <div class="starter-template">
             <div class="body">
-                <tiles:insertAttribute name="body" />
+                <tiles:insertAttribute name="body"/>
             </div>
         </div>
     </div>

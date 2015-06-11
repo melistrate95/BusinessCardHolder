@@ -2,13 +2,15 @@ package mike.businesscards.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "cards")
 public class Card implements Serializable {
 
     @Id
-    @Column(name = "ID", nullable = false)
+    @Column(name = "ID")
     @GeneratedValue
     private Integer id;
 
@@ -19,11 +21,14 @@ public class Card implements Serializable {
     @Column(name = "NAME", nullable = false)
     private String name;
 
-    @Column(name = "URL", nullable = false)
+    @Column(name = "URL")
     private String url;
 
-    @Column(name = "JSON", nullable = false)
-    private String json;
+    @OneToMany(mappedBy = "card", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ElementCard> elementsCard;
+
+    public Card() {
+    }
 
     public Integer getId() {
         return id;
@@ -57,21 +62,12 @@ public class Card implements Serializable {
         this.url = url;
     }
 
-    public String getJson() {
-        return json;
+    public List<ElementCard> getElementsCard() {
+        return elementsCard;
     }
 
-    public void setJson(String json) {
-        this.json = json;
+    public void setElementsCard(List<ElementCard> elementsCard) {
+        this.elementsCard = elementsCard;
     }
 
-    public Card() {
-    }
-
-    public Card(User user, String name, String url, String json) {
-        this.user = user;
-        this.name = name;
-        this.url = url;
-        this.json = json;
-    }
 }

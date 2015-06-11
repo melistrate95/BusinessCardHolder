@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -18,10 +19,8 @@ public class CardDaoImpl implements  CardDao{
     @Autowired
     private SessionFactory sessionFactory;
 
-    public void addCard(Card card, Integer userId) {
-        User user = (User) this.sessionFactory.getCurrentSession().load(User.class, userId);
-        card.setUser(user);
-        this.sessionFactory.getCurrentSession().saveOrUpdate(card);
+    public void create(Card card) {
+        sessionFactory.getCurrentSession().saveOrUpdate(card);
     }
 
     public Card getCardById(Integer id) {
@@ -29,7 +28,12 @@ public class CardDaoImpl implements  CardDao{
         query.setInteger("id", id);
         Card card = (Card) query.uniqueResult();
         return card;
-	}
+    }
+
+
+
+
+
 
     public Card getCardByName(String name) {
         Query query = this.sessionFactory.getCurrentSession().createQuery("FROM Card WHERE name=:name");

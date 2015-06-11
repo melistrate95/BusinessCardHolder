@@ -15,6 +15,18 @@
   <dependencies>
 
       <dependency>
+          <groupId>com.cloudinary</groupId>
+          <artifactId>cloudinary-http42</artifactId>
+          <version>1.2.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.cloudinary</groupId>
+          <artifactId>cloudinary-core</artifactId>
+          <version>1.2.0</version>
+      </dependency>
+
+      <dependency>
           <groupId>mysql</groupId>
           <artifactId>mysql-connector-java</artifactId>
           <version>5.1.30</version>
@@ -33,17 +45,17 @@
           <version>4.1.1.Final</version>
       </dependency>
 
-      <dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-annotations</artifactId>
-          <version>3.5.6-Final</version>
-      </dependency>
+      <!--<dependency>-->
+          <!--<groupId>org.hibernate</groupId>-->
+          <!--<artifactId>hibernate-annotations</artifactId>-->
+          <!--<version>3.5.6-Final</version>-->
+      <!--</dependency>-->
 
-      <dependency>
-          <groupId>org.hibernate</groupId>
-          <artifactId>hibernate-commons-annotations</artifactId>
-          <version>3.3.0.ga</version>
-      </dependency>
+      <!--<dependency>-->
+          <!--<groupId>org.hibernate</groupId>-->
+          <!--<artifactId>hibernate-commons-annotations</artifactId>-->
+          <!--<version>3.3.0.ga</version>-->
+      <!--</dependency>-->
 
       <dependency>
           <groupId>dom4j</groupId>
@@ -265,10 +277,12 @@
       </dependency>
 
       <dependency>
-          <groupId>com.googlecode.json-simple</groupId>
-          <artifactId>json-simple</artifactId>
-          <version>1.1</version>
+          <groupId>org.json</groupId>
+          <artifactId>json</artifactId>
+          <version>20090211</version>
       </dependency>
+
+
 
       <dependency>
           <groupId>commons-fileupload</groupId>

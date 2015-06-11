@@ -39,13 +39,36 @@ $(function() {
             encoding:"UTF-8",
             contentType: "application/json; charset=UTF-8",
             mimeType: 'application/json',
-            success: function(data, headers, status) {
-                alert("success" + data);
+            error: function(){
+                console.log("WOOPS");
             },
-            error: function(data, headers, status) {
-                alert("error" + data);
+            success: function(response){
+                console.log("SUCCESS idCard: " + response.id);
+                html2canvas( $( ".card" ), {
+                    onrendered: function( canvas ) {
+                        var imageData = canvas.toDataURL();
+                        $.ajax({
+                            url: '/saveCard/saveCardImage',
+                            data: {
+                                idCard: response.id,
+                                image: imageData
+                            },
+                            type: 'POST',
+                            dataType: 'json',
+                            timeout: 10000,
+                            async: false,
+                            error: function(){
+                                console.log("WOOPS");
+                            },
+                            success: function(response){
+                                console.log("SUCCESS url: " + response.url);
+                            }
+                        });
+                    }
+                });
             }
         });
+
         return false;
     });
 

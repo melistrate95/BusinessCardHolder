@@ -10,18 +10,17 @@
                            http://www.springframework.org/schema/mvc
                            http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <context:annotation-config />
+    <!--<context:annotation-config />-->
     <context:component-scan base-package="mike.businesscards"/>
     <mvc:annotation-driven/>
 
-    <mvc:default-servlet-handler/>
+    <!--<mvc:default-servlet-handler/>-->
     <mvc:resources mapping="/resources/**" location="/resources/" />
 
     <bean class = "org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name = "prefix" value = "/WEB-INF/pages/" />
         <property name = "suffix" value = ".jsp" />
     </bean>
-
 
     <bean id="resourceViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass">

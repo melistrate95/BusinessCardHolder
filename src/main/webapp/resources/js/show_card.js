@@ -4,7 +4,7 @@ $(function() {
     $( "#showCard" ).click(function() {
         $.ajax({
             type: "GET",
-            url: $("#name").text().substr() + "/json",
+            url: $("#idCard").val() + "/json",
             encoding:"UTF-8",
             contentType: "application/json; charset=UTF-8",
             dataType: 'json',
@@ -28,12 +28,7 @@ $(function() {
                 alert("error!!!");
             }
         });
-    });
-
-    $( '*' ).keydown(function( event ) {
-        if ( event.which == 27 ) {
-            $( '.card' ).hide("slow");
-        }
+        $( "#showCard").attr({'disabled' : 'disabled'});
     });
 });
 

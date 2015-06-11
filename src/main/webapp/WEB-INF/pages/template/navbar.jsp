@@ -9,7 +9,7 @@
 --%>
 <%@ page isELIgnored="false" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='/css/locale_button.css'>
+<link rel='stylesheet' href='/resources/css/locale_button.css'>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">

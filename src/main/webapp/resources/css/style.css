@@ -1,12 +1,9 @@
 .contact {
-    background-color: #ededed;
-    margin-bottom: 10px;
     z-index: 100;
 }
 
 .work-space{
     width: 530px;
-    
 }
 
 .contactCards {
@@ -70,3 +67,9 @@ a:link, a:visited, a:active {
 a:hover {
     text-decoration: none;
 }
+
+.form-signin {
+     max-width: 380px;
+     padding: 15px;
+     margin: 0 auto;
+ }

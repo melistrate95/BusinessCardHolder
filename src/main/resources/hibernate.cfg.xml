@@ -7,5 +7,6 @@
         <mapping class = "mike.businesscards.model.Card"></mapping>
         <mapping class = "mike.businesscards.model.Contact"></mapping>
         <mapping class = "mike.businesscards.model.Jobs"></mapping>
+        <mapping class = "mike.businesscards.model.ElementCard"></mapping>
     </session-factory>
 </hibernate-configuration>

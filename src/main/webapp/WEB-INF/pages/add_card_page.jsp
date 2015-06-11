@@ -1,17 +1,11 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: SAB
-  Date: 28/05/2015
-  Time: 22:39
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page isELIgnored="false"%>
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="scripts">
-        <script type="text/javascript" src="/js/drag_and_drop.js"></script>
+        <script type="text/javascript" src="/resources/js/html2canvas.js"></script>
+        <script type="text/javascript" src="/resources/js/drag_and_drop.js"></script>
     </tiles:putAttribute>
     <tiles:putAttribute name="title">
         CardEditor
@@ -32,10 +26,10 @@
         </div>
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-3 col-md-3 ">
-                <ul id="contacts" class="list-unstyled">
+                <ul id="contacts" class="form-horizontal list-unstyled">
                     <c:forEach items="${contacts}" var="contact">
                         <li>
-                            <div class="form-group-lg contact">
+                            <div class="form-group form-group-lg contact">
                                 <div class="input-group">
                                     <span class="input-group-addon">${contact.type}</span>
                                     <div class="form-control">${contact.content}</div></div>
@@ -94,15 +88,19 @@
                                    placeholder="<spring:message code="locale.yposition"/>"/>
                         </div>
                     </div>
-                    <div class="form-inline">
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-addon"><spring:message code="locale.name"/></span>
-                            <input type="text" class="form-control" id="nameCard"
-                                   placeholder="<spring:message code="locale.name"/>"/>
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon"><spring:message code="locale.name"/></span>
+                                <input type="text" class="form-control" id="nameCard"
+                                       placeholder="<spring:message code="locale.name"/>"/>
+                            </div>
                         </div>
-                        <dutton type="button" id="submitBtn" class="btn btn-default btn-block btn-lg">
-                            <spring:message code="locale.save"/>
-                        </dutton>
+                        <div class="form-group">
+                            <dutton type="button" id="submitBtn" class="btn btn-default btn-block btn-lg">
+                                <spring:message code="locale.save"/>
+                            </dutton>
+                        </div>
                     </div>
                 </div>
             </div>

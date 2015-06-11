@@ -4,9 +4,6 @@ import mike.businesscards.model.User;
 
 import java.util.List;
 
-/**
- * Created by Mike on 02/06/2015.
- */
 public interface  UserService {
 
     public void addUser(User user);
@@ -26,4 +23,7 @@ public interface  UserService {
     public boolean findUserByEmail(String email);
 
     public User getUserByEmail(String email);
+
+
+
 }
