@@ -10,21 +10,24 @@
         CardViewer
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
-        <div class="row">
-            <div class="jumbotron">
-                <div>
-                    <h2><spring:message code="locale.cardName"/>: <span>${card.name}</span></h2>
-                    <input type="hidden" id="idCard" name="id" value="${card.id}"/>
-                    <button type="button" id="showCard" class="btn btn-default btn-lg">
-                        <spring:message code="locale.showCard"/>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="col-lg-offset-2 col-lg-9 col-md-9 work-space">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 card"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-offset-2 col-lg-8 col-md-8 work-space">
+                        <div class="contact name-header">
+                            <div class="form-group">
+                                <h1 class="featurette-heading">${card.name}</h1>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 card"></div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 action-space">
+                        <button type="button" id="showCard" class="btn btn-default btn-lg rule-btn">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </button>
+                        <input type="hidden" id="idCard" name="id" value="${card.id}"/>
+                    </div>
                 </div>
             </div>
         </div>

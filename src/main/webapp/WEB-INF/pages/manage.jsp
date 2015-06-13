@@ -15,28 +15,34 @@
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
         <script type="text/javascript" src="/js/change_user.js"></script>
-        <table class="table">
-            <thead>
-            <tr>
-                <th><spring:message code="locale.name"/></th>
-                <th><spring:message code="locale.email"/></th>
-                <th><spring:message code="locale.password"/></th>
-                <th><spring:message code="locale.role"/></th>
-                <th><spring:message code="locale.reference"/></th>
-            </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${array}" var="tab">
-                    <tr>
-                        <td>${tab.name}</td>
-                        <td>${tab.mail}</td>
-                        <td>${tab.password}</td>
-                        <td>${tab.role}</td>
-                        <td><a href="http://localhost:8080/id${tab.id}">id${tab.id}</a> </td>
-                        <td><a href="/manage/delete/id${tab.id}"><spring:message code="locale.delete"/></a> </td>
-                    </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+        <div class="container" style="padding-top: 80px">
+            <div class="starter-template">
+                <div class="body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th><spring:message code="locale.name"/></th>
+                            <th><spring:message code="locale.email"/></th>
+                            <th><spring:message code="locale.password"/></th>
+                            <th><spring:message code="locale.role"/></th>
+                            <th><spring:message code="locale.reference"/></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${array}" var="tab">
+                                <tr>
+                                    <td>${tab.name}</td>
+                                    <td>${tab.mail}</td>
+                                    <td>${tab.password}</td>
+                                    <td>${tab.role}</td>
+                                    <td><a href="http://localhost:8080/id${tab.id}">id${tab.id}</a> </td>
+                                    <td><a href="/manage/delete/id${tab.id}"><spring:message code="locale.delete"/></a> </td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </tiles:putAttribute>
 </tiles:insertDefinition>

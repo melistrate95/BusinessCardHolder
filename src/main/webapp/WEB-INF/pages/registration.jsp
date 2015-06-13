@@ -11,17 +11,23 @@
         Registration
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
-        <div class="jumbotron">
-            <div class="page-header">
-                <h2>  Registration. </h2>
+        <div class="container" style="padding-top: 80px">
+            <div class="starter-template">
+                <div class="body">
+                    <div class="jumbotron">
+                        <div class="page-header">
+                            <h2>  Registration. </h2>
+                        </div>
+                        <form method="post" action="/registration" commandName="userRegistration" >
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Name">
+                            <input type="text" id="mail" name="mail" class="form-control" placeholder="Mail">
+                            <input type="password" id="password" name="password" class="form-control" placeholder="Password">
+                            <br>
+                            <button class="btn btn-primary" type="submit" name="save">Create account</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <form method="post" action="/registration" commandName="userRegistration" >
-                <input type="text" id="name" name="name" class="form-control" placeholder="Name">
-                <input type="text" id="mail" name="mail" class="form-control" placeholder="Mail">
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
-                <br>
-                <button class="btn btn-primary" type="submit" name="save">Create account</button>
-            </form>
         </div>
     </tiles:putAttribute>
 </tiles:insertDefinition>

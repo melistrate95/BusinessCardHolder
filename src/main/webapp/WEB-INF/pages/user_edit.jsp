@@ -15,20 +15,26 @@
         Personal
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
-        <div class="jumbotron">
-            <div class="page-header">
-                <h2>  Edit Personal Data. </h2>
+        <div class="container" style="padding-top: 80px">
+            <div class="starter-template">
+                <div class="body">
+                    <div class="jumbotron">
+                        <div class="page-header">
+                            <h2>  Edit Personal Data. </h2>
+                        </div>
+                        <form method="post" action="/save" commandName="userSave" >
+                            <input type="text" id="name" name="name" class="form-control" value="${user.name}">
+                            <input type="text" id="mail" name="mail" class="form-control" value="${user.mail}">
+                            <input type="text" id="password" name="password" class="form-control" value="${user.password}">
+                            <c:if test="${online_user.role == 'ROLE_ADMIN'}">
+                                <input type="text" id="role" name="role" class="form-control" value="${user.role}">
+                            </c:if>
+                            <br>
+                            <button class="btn btn-primary" type="submit" name="save">Save</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <form method="post" action="/save" commandName="userSave" >
-                <input type="text" id="name" name="name" class="form-control" value="${user.name}">
-                <input type="text" id="mail" name="mail" class="form-control" value="${user.mail}">
-                <input type="text" id="password" name="password" class="form-control" value="${user.password}">
-                <c:if test="${online_user.role == 'ROLE_ADMIN'}">
-                    <input type="text" id="role" name="role" class="form-control" value="${user.role}">
-                </c:if>
-                <br>
-                <button class="btn btn-primary" type="submit" name="save">Save</button>
-            </form>
         </div>
     </tiles:putAttribute>
 </tiles:insertDefinition>

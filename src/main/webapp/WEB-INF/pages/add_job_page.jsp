@@ -11,16 +11,22 @@
         CardEditor
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
-        <div class="jumbotron">
-            <div class="page-header">
-                <h2>  Add Job. </h2>
+        <div class="container" style="padding-top: 80px">
+            <div class="starter-template">
+                <div class="body">
+                    <div class="jumbotron">
+                        <div class="page-header">
+                            <h2>  Add Job. </h2>
+                        </div>
+                        <form method="post" action="/add_job" commandName="addJob" >
+                            <input type="text" id="company" name="company" class="form-control" placeholder="Company">
+                            <input type="text" id="post" name="post" class="form-control" placeholder="Post">
+                            <br>
+                            <button class="btn btn-primary" type="submit" name="add">Add Job</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <form method="post" action="/add_job" commandName="addJob" >
-                <input type="text" id="company" name="company" class="form-control" placeholder="Company">
-                <input type="text" id="post" name="post" class="form-control" placeholder="Post">
-                <br>
-                <button class="btn btn-primary" type="submit" name="add">Add Job</button>
-            </form>
         </div>
     </tiles:putAttribute>
 </tiles:insertDefinition>

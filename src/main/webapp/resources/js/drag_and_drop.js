@@ -88,7 +88,7 @@ function addContact(ui, arr) {
         "yposition": $(ui).position().top
     });
 };
-
+//
 function handleDropContactEvent( event, ui ) {
     var $contact = $( '<div>' ).attr({ 'class': 'contactCards' });
     $contact.text( ui.draggable.text() );
@@ -116,14 +116,14 @@ function handleDropContactEvent( event, ui ) {
         getProperties( $(this) );
     });
 };
-
+//
 function handleDropContactCardsEvent( event, ui ) {
     if ( ui.draggable.hasClass( 'edit' ) )
         $(clearElement());
     ui.draggable.remove();
     $( '.basket' ).hide( 'fast' );
 };
-
+//
 function clearElement() {
     $('.properties').hide('fast');
     $('.basket').hide('fast');
@@ -132,7 +132,7 @@ function clearElement() {
     $('.card > *').removeClass('edit');
     $(".edit").css({position:'absolute'});
 };
-
+//
 function getProperties( ui ) {
     $( '#textContacts' ).val( ui[0].innerText );
     $( '#fontSize' ).val( ui.css( 'font-size' ) );
@@ -142,7 +142,7 @@ function getProperties( ui ) {
     $( '#height' ).val( ui.outerHeight() );
     getPosition(ui);
 };
-
+//
 function setProperties() {
     setSize();
     setPosition();
@@ -151,12 +151,12 @@ function setProperties() {
     setFontColor();
     setBackgroundColor();
 };
-
+//
 function getPosition(ui) {
     $( '#positionX' ).val( ui.position().left );
     $( '#positionY' ).val( ui.position().top );
 };
-
+//
 function setPosition(){
     var maxX = $( ".card" ).outerWidth( true ) - $( ".edit" ).outerWidth( true ),
         maxY = $( ".card" ).outerHeight( true ) - $( ".edit" ).outerHeight( true ),
@@ -169,24 +169,24 @@ function setPosition(){
     $( ".edit" ).parent().css({ position: 'relative' });
     $( ".edit" ).css({ top: y, left: x, position:'absolute' });
 };
-
+//
 function setFontSize() {
     var currentFontSizeNum = parseFloat( $( '#fontSize' ).val(), 10 );
     $( ".edit" ).css( 'font-size', currentFontSizeNum );
 };
-
+//
 function setText() {
     $( ".edit").text( $( "#textContacts" ).val() );
 };
-
+//
 function setFontColor() {
     $( ".edit" ).css( 'color',  $( '#fontColor' ).val() );
 };
-
+//
 function setBackgroundColor() {
     $( ".edit" ).css( 'background-color',  $( '#backgroundColor' ).val() );
 };
-
+//
 function setSize() {
     var maxW = $( ".card" ).outerWidth( true ) - $( ".edit" ).position.left,
         maxH = $( ".card" ).outerHeight( true ) - $( ".edit" ).position.top,
@@ -200,7 +200,7 @@ function setSize() {
     h = h < minH ? minH : h;
     $( ".edit" ).css({ 'width':  w, 'height': h });
 };
-
+//
 function getSize(ui) {
     $( '#width' ).val( ui.size.width );
     $( '#height' ).val( ui.size.height );
