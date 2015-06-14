@@ -37,15 +37,13 @@ public class CardUtil {
     public CardUtil() {}
 
     public Card setPropertyCard(User user, String json) {
-        Card card = new Card();
-        try {
-            JSONObject object = new JSONObject(json);
-            card.setName(object.getString(NAME_CARD));
-            card.setUser(user);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        Card card = parseJson(new Card(), user, json);
         return card;
+    }
+
+    public Card updateProperty(Card card, User user, String json) {
+        card.getElementsCard().clear();
+        return parseJson(card, user, json);
     }
 
     public String sendImage(Integer idCard, String image) {
@@ -97,7 +95,16 @@ public class CardUtil {
         return name;
     }
 
-
+    private Card parseJson(Card card, User user, String json) {
+        try {
+            JSONObject object = new JSONObject(json);
+            card.setName(object.getString(NAME_CARD));
+            card.setUser(user);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return card;
+    }
 }
 
 

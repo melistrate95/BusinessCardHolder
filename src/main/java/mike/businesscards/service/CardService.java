@@ -20,5 +20,7 @@ public interface CardService {
 
     public void removeCard(Integer id);
 
+    public Integer update(Integer idCard, String json);
 
+    public String updateCardImage(Integer idCard, String image);
 }

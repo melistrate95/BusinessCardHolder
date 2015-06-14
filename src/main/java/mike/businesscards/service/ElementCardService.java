@@ -15,4 +15,6 @@ public interface ElementCardService {
     public JSONObject getElementsCardJson(List<ElementCard> elements);
 
     public void remove(ElementCard elementCard);
+
+    public void removeAll(List<ElementCard> elementsCard);
 }

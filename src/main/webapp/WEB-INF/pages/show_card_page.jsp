@@ -17,16 +17,9 @@
                         <div class="contact name-header">
                             <div class="form-group">
                                 <h1 class="featurette-heading">${card.name}</h1>
-
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 card"></div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 action-space">
-                        <button type="button" id="showCard" class="btn btn-default btn-lg rule-btn">
-                            <span class="glyphicon glyphicon-eye-open"></span>
-                        </button>
-                        <input type="hidden" id="idCard" name="id" value="${card.id}"/>
                     </div>
                 </div>
             </div>

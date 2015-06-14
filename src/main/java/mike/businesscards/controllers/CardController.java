@@ -45,7 +45,7 @@ public class CardController {
         return "add_card_page";
     }
 
-    @RequestMapping(value = "/id{id}/cards/{idCard}", method = RequestMethod.GET)
+    @RequestMapping(value = "/id{id}/cards/{idCard}/show", method = RequestMethod.GET)
     public String showCard(@PathVariable Integer id, @PathVariable Integer idCard, ModelMap model) {
         User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
         model.addAttribute("user", onlineUser);
@@ -61,21 +61,38 @@ public class CardController {
         return new ResponseEntity<String>(cardService.getCardByIdJson(idCard), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/saveCard", method = RequestMethod.POST)
+    @RequestMapping(value = "/id{id}/saveCard", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> saveCard(@RequestBody String json) {
+    public Map<String, Object> saveCard(@PathVariable Integer id, @RequestBody String json) {
         Map<String,Object> response = new HashMap<String, Object>();
         response.put("id", cardService.create(json));
         return response;
     }
-
-    @RequestMapping(value = "/saveCard/saveCardImage", method = RequestMethod.POST)
+    @RequestMapping(value = "/id{id}/cards/{idCard}/saveCard", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> saveCardImage(
+    public Map<String, Object> updateCard(@PathVariable Integer id,
+        @PathVariable Integer idCard, @RequestBody String json) {
+        Map<String,Object> response = new HashMap<String, Object>();
+        response.put("id", cardService.update(idCard, json));
+        return response;
+    }
+
+    @RequestMapping(value = "/id{id}/saveCard/saveCardImage", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> saveCardImage(@PathVariable Integer id,
         @RequestParam(value = "idCard") Integer idCard,
         @RequestParam(value = "image", defaultValue = "") String image) {
         Map<String,Object> response = new HashMap<String, Object>();
         response.put("url", cardService.saveCardImage(idCard, image));
+        return response;
+    }
+    @RequestMapping(value = "/id{id}/cards/{idCardPath}/saveCard/saveCardImage", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Object> updateCardImage(@PathVariable Integer id, @PathVariable Integer idCardPath,
+        @RequestParam(value = "idCard") Integer idCard,
+        @RequestParam(value = "image", defaultValue = "") String image) {
+        Map<String,Object> response = new HashMap<String, Object>();
+        response.put("url", cardService.updateCardImage(idCard, image));
         return response;
     }
 
@@ -87,6 +104,20 @@ public class CardController {
         response.put("id", idCard);
         return response;
     }
+
+    @RequestMapping(value = "/id{id}/cards/{idCard}/edit", method = RequestMethod.GET)
+    public String goToPageEditCard(@PathVariable Integer id, @PathVariable Integer idCard, ModelMap model) {
+        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        model.addAttribute("user", onlineUser);
+        ArrayList<Contact> contacts = (ArrayList<Contact>) contactService.listUserContact(id);
+        model.addAttribute("contacts", contacts);
+        ArrayList<Jobs> jobs = (ArrayList<Jobs>) jobsService.listUserJobs(id);
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("card", (Card) cardService.getCardById(idCard));
+        return "add_card_page";
+    }
+
+
 
 
 }

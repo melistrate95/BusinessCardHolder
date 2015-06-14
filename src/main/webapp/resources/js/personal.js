@@ -9,7 +9,7 @@
     });
     return $('#removeCard').click(function() {
       var id;
-      id = $("#idCard").val();
+      id = $(this).attr('id-card');
       $.ajax({
         type: 'DELETE',
         url: "cards/delete" + '?' + $.param({

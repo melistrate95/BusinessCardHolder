@@ -5,7 +5,7 @@ $ ->
     $('#myCarousel').Carousel3d('next')
 
   $('#removeCard').click ->
-    id = $("#idCard").val()
+    id = $(@).attr('id-card')
     $.ajax
       type: 'DELETE'
       url: "cards/delete" + '?' + $.param idCard: id

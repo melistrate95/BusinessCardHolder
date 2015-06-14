@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -49,11 +50,32 @@ public class CardServiceImpl implements CardService {
 
     @Override
     @Transactional
+    public Integer update(Integer idCard, String json) {
+        User user = userService.getUserByEmail(userSessionService.getUsername());
+        Card card = cardDao.getCardById(idCard);
+        elementCardService.removeAll(card.getElementsCard());
+        card = cardUtil.updateProperty(card, user, json);
+        cardDao.create(card);
+        elementCardService.addElementsCard(card, json);
+        return idCard;
+    }
+
+    @Override
+    @Transactional
     public String saveCardImage(Integer idCard, String image) {
         String url = cardUtil.sendImage(idCard, image);
         Card card = cardDao.getCardById(idCard);
         card.setUrl(url);
         return url;
+    }
+
+    @Override
+    @Transactional
+    public String updateCardImage(Integer idCard, String image) {
+        Card card = getCardById(idCard);
+        String url = card.getUrl();
+        cardUtil.removeImage(url);
+        return saveCardImage(idCard, image);
     }
 
     @Override
@@ -77,10 +99,7 @@ public class CardServiceImpl implements CardService {
     public void removeCard(Integer id) {
         Card card = getCardById(id);
         String url = card.getUrl();
-        List<ElementCard> elementCards = card.getElementsCard();
-        for (ElementCard elementCard : elementCards) {
-            elementCardService.remove(elementCard);
-        }
+        elementCardService.removeAll(card.getElementsCard());
         cardDao.removeCard(id);
         cardUtil.removeImage(url);
     }

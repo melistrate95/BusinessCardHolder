@@ -40,11 +40,19 @@
                         <c:forEach items="${cards}" var="card">
                             <div>
                                 <div class="remove-preview">
-                                    <a href="/id${user.id}" id="removeCard"><span class="glyphicon glyphicon-remove"></span></a>
-                                    <input type="hidden" id="idCard" name="id" value="${card.id}"/>
+                                    <a href="/id${user.id}" id="removeCard" id-card="${card.id}">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </div>
+                                <div class="edit-preview">
+                                    <a href="/id${user.id}/cards/${card.id}/edit" id="editCard" id-card="${card.id}">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
                                 </div>
                                 <div class="preview">
-                                    <a href="/id${user.id}/cards/${card.id}"><h2 class="card-heading">${card.name}</h2></a>
+                                    <a href="/id${user.id}/cards/${card.id}/show">
+                                        <h2 class="card-heading">${card.name}</h2>
+                                    </a>
                                 </div>
                                 <img src="${card.url}" style="width: 100%;"  <c:if test="${i == 0}">selected</c:if>/>
                             </div>

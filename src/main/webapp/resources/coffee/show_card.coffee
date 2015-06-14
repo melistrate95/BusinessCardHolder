@@ -2,7 +2,7 @@ $ ->
   $('.card').hide()
   $.ajax
     type: "GET"
-    url: $("#idCard").val() + "/json"
+    url: "json"
     encoding:"UTF-8"
     contentType: "application/json; charset=UTF-8"
     dataType: 'json'
@@ -20,12 +20,10 @@ $ ->
           position: 'absolute'
           top: json.contactCards[i].yposition
           left: json.contactCards[i].xposition
-          font-size: json.contactCards[i].font
+          'font-size': json.contactCards[i].font
           color: json.contactCards[i].color
-          background-color: json.contactCards[i].bgcolor
+          'background-color': json.contactCards[i].bgcolor
           width: json.contactCards[i].width
           height: json.contactCards[i].height
     error: (data, headers, status) ->
       alert("error!!!");
-#  $('#showCard').attr
-#    'disabled' : 'disabled'

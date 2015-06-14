@@ -46,4 +46,14 @@ public class ElementCardServiceImpl implements ElementCardService {
     public void remove(ElementCard elementCard) {
         elementCardDao.remove(elementCard);
     }
+
+    @Override
+    @Transactional
+    public void removeAll(List<ElementCard> elementsCard) {
+        for (ElementCard elementCard: elementsCard) {
+            remove(elementCard);
+        }
+    }
+
+
 }

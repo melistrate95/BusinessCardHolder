@@ -54,6 +54,36 @@ $ ->
   .bind "ajaxComplete", ->
     $(@).modal 'hide'
 
+  $.ajax
+    type: "GET"
+    url: "json"
+    encoding:"UTF-8"
+    contentType: "application/json; charset=UTF-8"
+    dataType: 'json'
+    success: (json, headers, status) ->
+      col = json.contactCards.length
+      $('#nameCard').val(json.name)
+      $('.card').css
+        position: 'relative'
+      for i in [0..col]
+        $contact = $('<div>').attr
+          class: 'contactCards'
+        $contact.text json.contactCards[i].text
+        $('.card').append $contact
+        addListener $contact
+        $contact.css
+          position: 'absolute'
+          top: json.contactCards[i].yposition
+          left: json.contactCards[i].xposition
+          'font-size': json.contactCards[i].font
+          color: json.contactCards[i].color
+          'background-color': json.contactCards[i].bgcolor
+          width: json.contactCards[i].width
+          height: json.contactCards[i].height
+        console.log 'success'
+    error: (data, headers, status) ->
+      console.log 'error'
+
   $("#submitBtn").click ->
     $('#myModal').modal('hide')
     json =
@@ -63,7 +93,7 @@ $ ->
       addContact(contact, json.contactCards)
     $.ajax
       type: "POST"
-      url: "/saveCard"
+      url: "saveCard"
       dataType: 'json'
       data: JSON.stringify(json)
       encoding:"UTF-8"
@@ -76,7 +106,7 @@ $ ->
         html2canvas $(".card"), onrendered: (canvas) ->
           imageData = canvas.toDataURL()
           $.ajax
-            url: '/saveCard/saveCardImage'
+            url: 'saveCard/saveCardImage'
             data:
               idCard: response.id
               image: imageData
@@ -119,6 +149,9 @@ handleDropContactEvent = (event, ui) ->
     my: "center"
     at: "center"
     of: ".card"
+  addListener($contact)
+
+addListener = ($contact) ->
   $contact.draggable
     containment: '.card'
     cursor: 'move'
@@ -129,7 +162,7 @@ handleDropContactEvent = (event, ui) ->
     $(@).resizable
       resize: (event, ui) ->
         getSize ui
-    $(this).draggable
+    $(@).draggable
       containment: '.card'
       cursor: 'move'
       drag: (event, ui) ->
