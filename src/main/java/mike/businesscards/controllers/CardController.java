@@ -78,4 +78,15 @@ public class CardController {
         response.put("url", cardService.saveCardImage(idCard, image));
         return response;
     }
+
+    @RequestMapping(value = "/cards/delete", method = RequestMethod.DELETE)
+    @ResponseBody
+    public Map<String, Object> removeCard(@RequestParam(value = "idCard") Integer idCard) {
+        Map<String,Object> response = new HashMap<String, Object>();
+        cardService.removeCard(idCard);
+        response.put("id", idCard);
+        return response;
+    }
+
+
 }

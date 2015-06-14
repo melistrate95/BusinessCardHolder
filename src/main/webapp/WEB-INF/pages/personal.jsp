@@ -40,7 +40,8 @@
                         <c:forEach items="${cards}" var="card">
                             <div>
                                 <div class="remove-preview">
-                                    <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <a href="/id${user.id}" id="removeCard"><span class="glyphicon glyphicon-remove"></span></a>
+                                    <input type="hidden" id="idCard" name="id" value="${card.id}"/>
                                 </div>
                                 <div class="preview">
                                     <a href="/id${user.id}/cards/${card.id}"><h2 class="card-heading">${card.name}</h2></a>

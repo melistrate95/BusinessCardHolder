@@ -4,8 +4,27 @@
     $('#prev-button').click(function() {
       return $('#myCarousel').Carousel3d('prev');
     });
-    return $('#next-button').click(function() {
+    $('#next-button').click(function() {
       return $('#myCarousel').Carousel3d('next');
+    });
+    return $('#removeCard').click(function() {
+      var id;
+      id = $("#idCard").val();
+      $.ajax({
+        type: 'DELETE',
+        url: "cards/delete" + '?' + $.param({
+          idCard: id
+        }),
+        dataType: 'json',
+        async: false,
+        error: function() {
+          return console.log("WOOPS");
+        },
+        success: function(response) {
+          return console.log("SUCCESS " + id);
+        }
+      });
+      return true;
     });
   });
 

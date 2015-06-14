@@ -83,12 +83,12 @@ $ ->
             type: 'POST'
             dataType: 'json'
             timeout: 10000
-            async: false
             error: () ->
               console.log("WOOPS")
             success: (response) ->
               console.log("SUCCESS url: " + response.url)
-    true
+    $("#openModal").attr 'disabled' : 'disabled'
+    false
 
   $('#textContacts').on 'input', ->
    setProperties()

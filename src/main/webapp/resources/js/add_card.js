@@ -97,7 +97,6 @@
                 type: 'POST',
                 dataType: 'json',
                 timeout: 10000,
-                async: false,
                 error: function() {
                   return console.log("WOOPS");
                 },
@@ -109,7 +108,10 @@
           });
         }
       });
-      return true;
+      $("#openModal").attr({
+        'disabled': 'disabled'
+      });
+      return false;
     });
     $('#textContacts').on('input', function() {
       return setProperties();

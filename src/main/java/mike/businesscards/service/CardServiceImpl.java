@@ -3,6 +3,7 @@ package mike.businesscards.service;
 import mike.businesscards.dao.CardDao;
 import mike.businesscards.model.Card;
 import mike.businesscards.model.CardUtil;
+import mike.businesscards.model.ElementCard;
 import mike.businesscards.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -74,8 +75,13 @@ public class CardServiceImpl implements CardService {
 
     @Transactional
     public void removeCard(Integer id) {
+        Card card = getCardById(id);
+        String url = card.getUrl();
+        List<ElementCard> elementCards = card.getElementsCard();
+        for (ElementCard elementCard : elementCards) {
+            elementCardService.remove(elementCard);
+        }
         cardDao.removeCard(id);
+        cardUtil.removeImage(url);
     }
-
-
 }

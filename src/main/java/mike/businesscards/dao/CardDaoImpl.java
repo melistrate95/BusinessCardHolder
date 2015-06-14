@@ -24,26 +24,21 @@ public class CardDaoImpl implements  CardDao{
     }
 
     public Card getCardById(Integer id) {
-        Query query = this.sessionFactory.getCurrentSession().createQuery("FROM Card WHERE id=:id");
+        Query query = sessionFactory.getCurrentSession().createQuery("FROM Card WHERE id=:id");
         query.setInteger("id", id);
         Card card = (Card) query.uniqueResult();
         return card;
     }
 
-
-
-
-
-
     public Card getCardByName(String name) {
-        Query query = this.sessionFactory.getCurrentSession().createQuery("FROM Card WHERE name=:name");
+        Query query = sessionFactory.getCurrentSession().createQuery("FROM Card WHERE name=:name");
         query.setString("name", name);
         Card card = (Card) query.uniqueResult();
         return card;
     }
 
     public List<Card> listUserCard(Integer userId) {
-        Query q = this.sessionFactory.getCurrentSession().createQuery("FROM User where id=:id");
+        Query q = sessionFactory.getCurrentSession().createQuery("FROM User where id=:id");
         q.setInteger("id", userId);
         User user = (User) q.uniqueResult();
         Set<Card> set= user.getCards();
@@ -52,14 +47,14 @@ public class CardDaoImpl implements  CardDao{
     }
 
     public List<Card> listAllCard() {
-        Query q = this.sessionFactory.getCurrentSession().createQuery("FROM Card");
+        Query q = sessionFactory.getCurrentSession().createQuery("FROM Card");
         return q.list();
     }
 
     public void removeCard(Integer id) {
-        Card card = (Card) this.sessionFactory.getCurrentSession().load(Card.class, id);
+        Card card = (Card) sessionFactory.getCurrentSession().load(Card.class, id);
         if (null != card) {
-            this.sessionFactory.getCurrentSession().delete(card);
+            sessionFactory.getCurrentSession().delete(card);
         }
     }
 }

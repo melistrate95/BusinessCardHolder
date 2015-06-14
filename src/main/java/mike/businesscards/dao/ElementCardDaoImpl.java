@@ -15,4 +15,10 @@ public class ElementCardDaoImpl implements ElementCardDao {
     public void create(ElementCard elementCard) {
         sessionFactory.getCurrentSession().saveOrUpdate(elementCard);
     }
+
+    @Override
+    public void remove(ElementCard elementCard) {
+        sessionFactory.getCurrentSession().delete(elementCard);
+    }
+
 }

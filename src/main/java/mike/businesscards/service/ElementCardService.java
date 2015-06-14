@@ -13,4 +13,6 @@ public interface ElementCardService {
     public void addElementsCard(Card card, String json);
 
     public JSONObject getElementsCardJson(List<ElementCard> elements);
+
+    public void remove(ElementCard elementCard);
 }

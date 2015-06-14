@@ -69,6 +69,18 @@ public class CardUtil {
         return url;
     }
 
+    public void removeImage(String url) {
+        try {
+            Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+                CLOUD_NAME, environment.getRequiredProperty("cloudinary.cloud_name"),
+                CLOUD_API_KEY, environment.getRequiredProperty("cloudinary.api_key"),
+                CLOUD_API_SECRET, environment.getRequiredProperty("cloudinary.api_secret")));
+            cloudinary.uploader().destroy(getPublicId(url), ObjectUtils.emptyMap());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public String getCardJson(Card card, JSONObject object) {
         try {
             object.put(NAME_CARD, card.getName());
@@ -77,6 +89,15 @@ public class CardUtil {
         }
         return object.toString();
     }
+
+    public String getPublicId(String url) {
+        String[] tokens = url.split("/");
+        String file = tokens[tokens.length-1];
+        String name = file.substring(0, file.length()-4);
+        return name;
+    }
+
+
 }
 
 

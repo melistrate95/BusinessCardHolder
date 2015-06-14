@@ -40,4 +40,10 @@ public class ElementCardServiceImpl implements ElementCardService {
     public JSONObject getElementsCardJson(List<ElementCard> elements) {
         return  elementCardUtil.getElementsCardJson(elements);
     }
+
+    @Override
+    @Transactional
+    public void remove(ElementCard elementCard) {
+        elementCardDao.remove(elementCard);
+    }
 }
