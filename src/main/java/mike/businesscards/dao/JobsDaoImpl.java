@@ -28,6 +28,13 @@ public class JobsDaoImpl implements JobsDao{
         this.sessionFactory.getCurrentSession().saveOrUpdate(contact);
     }
 
+    public Jobs getJob(Integer userId, Integer jobId) {
+        Query q = this.sessionFactory.getCurrentSession().createQuery("FROM Jobs where id=:id and user=:user");
+        q.setInteger("id", jobId);
+        q.setInteger("user", userId);
+        return (Jobs) q.uniqueResult();
+    }
+
     public List<Jobs> listUserJobs(Integer userId) {
         Query q = this.sessionFactory.getCurrentSession().createQuery("FROM User where id=:id");
         q.setInteger("id", userId);
@@ -42,7 +49,7 @@ public class JobsDaoImpl implements JobsDao{
         return q.list();
     }
 
-    public void removeContact(Integer id) {
+    public void removeJob(Integer id) {
         Jobs jobs = (Jobs) this.sessionFactory.getCurrentSession().load(Jobs.class, id);
         if (null != jobs) {
             this.sessionFactory.getCurrentSession().delete(jobs);

@@ -6,6 +6,7 @@
   Time: 01:02
   To change this template use File | Settings | File Templates.
 --%>
+<%@ page isELIgnored="false" %>
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="title">
         JobEditor
@@ -13,13 +14,14 @@
     <tiles:putAttribute name="body">
         <div class="jumbotron">
             <div class="page-header">
-                <h2>  Add Job. </h2>
+                <h2>  Edit Job. </h2>
             </div>
-            <form method="post" action="/add_job" commandName="addJob" >
-                <input type="text" id="company" name="company" class="form-control" placeholder="Company">
-                <input type="text" id="post" name="post" class="form-control" placeholder="Post">
+            <form method="post" action="/edit_job" commandName="editJob" >
+                <input type="hidden" id="id" name="id" value="${job.id}">
+                <input type="text" id="company" name="company" class="form-control" value="${job.company}">
+                <input type="text" id="post" name="post" class="form-control" value="${job.post}">
                 <br>
-                <button class="btn btn-primary" type="submit" name="add">Add Job</button>
+                <button class="btn btn-primary" type="submit" name="add">Edit Job</button>
             </form>
         </div>
     </tiles:putAttribute>

@@ -23,6 +23,11 @@ public class JobsServiceImpl implements JobsService{
     }
 
     @Transactional
+    public Jobs getJob(Integer userId, Integer jobId) {
+        return jobsDao.getJob(userId, jobId);
+    }
+
+    @Transactional
     public List<Jobs> listUserJobs(Integer userId) {
         return jobsDao.listUserJobs(userId);
     }
@@ -33,7 +38,7 @@ public class JobsServiceImpl implements JobsService{
     }
 
     @Transactional
-    public void removeContact(Integer id) {
-        jobsDao.removeContact(id);
+    public void removeJob(Integer id) {
+        jobsDao.removeJob(id);
     }
 }

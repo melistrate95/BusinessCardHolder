@@ -1,6 +1,9 @@
 package mike.businesscards.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -17,32 +20,48 @@ public class ElementCard implements Serializable {
     @JoinColumn(name = "ID_CARD")
     private Card card;
 
+//    @NotNull
+//    @Size(min=1, max=50)
     @Column(name = "TEXT")
     private String text;
 
+//    @NotNull
+//    @Size(min=1, max=50)
     @Column(name = "FONT", nullable = false)
     private String font;
 
+//    @NotNull
+//    @Size(min=1, max=50)
     @Column(name = "COLOR", nullable = false)
     private String color;
 
+//    @NotNull
+//    @Size(min=1, max=50)
     @Column(name = "BGCOLOR", nullable = false)
     private String bgColor;
 
+//    @NotNull
+//    @Min(0)
+//    @Max(500)
     @Column(name = "WIDTH", nullable = false)
-//    @Size(min = 0, max = 500)
     private Integer width;
 
+//    @NotNull
+//    @Min(0)
+//    @Max(500)
     @Column(name = "HEIGHT", nullable = false)
-//    @Size(min = 0, max = 300)
     private Integer height;
 
+//    @NotNull
+//    @Min(0)
+//    @Max(500)
     @Column(name = "POSITION_X", nullable = false)
-//    @Size(min = 0, max = 500)
     private Integer positionX;
 
+//    @NotNull
+//    @Min(0)
+//    @Max(500)
     @Column(name = "POSITION_Y", nullable = false)
-//    @Size(min = 0, max = 300)
     private Integer positionY;
 
     public ElementCard() {}

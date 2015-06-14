@@ -85,7 +85,16 @@
             <div>
                 <h1><spring:message code="locale.contacts"/>:</h1>
                 <c:forEach items="${contacts}" var="contact">
-                    <h2>${contact.type}: ${contact.content}</h2>
+                    <h2>
+                        ${contact.type}: ${contact.content}
+                        <a href="/edit_contact/${contact.id}">
+                            <button type="button" class="btn btn-lg"><span class="glyphicon glyphicon-pencil"></span></button>
+                        </a>
+                        <a href="/delete_contact/${contact.id}">
+                            <button type="button" class="btn btn-lg"><span class="glyphicon glyphicon-remove"></span></button>
+                        </a>
+                    </h2>
+
                 </c:forEach>
             </div>
         </div>
@@ -99,7 +108,15 @@
             <div>
                 <h1><spring:message code="locale.jobs"/>:</h1>
                 <c:forEach items="${jobs}" var="job">
-                    <h2><spring:message code="locale.company"/>: ${job.company}</h2>
+                    <h2>
+                        <spring:message code="locale.company"/>: ${job.company}
+                        <a href="/edit_job/${job.id}">
+                            <button type="button" class="btn btn-lg"><span class="glyphicon glyphicon-pencil"></span></button>
+                        </a>
+                        <a href="/delete_job/${job.id}">
+                            <button type="button" class="btn btn-lg"><span class="glyphicon glyphicon-remove"></span></button>
+                        </a>
+                    </h2>
                     <h2><spring:message code="locale.post"/>: ${job.post}</h2>
                     <br><br>
                 </c:forEach>

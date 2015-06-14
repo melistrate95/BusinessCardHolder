@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -53,6 +54,27 @@ public class ContactController {
         }
         User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
         this.contactService.addContact(contact, onlineUser.getId());
+        return "redirect:/personal";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/edit_contact/{id}")
+    public String initEditContactPage(@PathVariable Integer id,ModelMap model) {
+        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        Contact contact = contactService.getContact(onlineUser.getId(), id);
+        model.addAttribute("contact", contact);
+        return "contact_edit";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/edit_contact")
+    public String editContact(ModelMap model, Contact contact) {
+        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        this.contactService.addContact(contact, onlineUser.getId());
+        return "redirect:/personal";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/delete_contact/{id}")
+    public String deleteContact(@PathVariable Integer id, ModelMap model) {
+        contactService.removeContact(id);
         return "redirect:/personal";
     }
 }

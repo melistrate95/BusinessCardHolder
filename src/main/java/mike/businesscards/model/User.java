@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.*;
@@ -26,7 +27,8 @@ public class User implements Serializable, UserDetails {
     private Integer id;
 
     @NotNull
-    @Size(min=3, max=16)
+    @Size(min=3, max=16, message = "Length from 3 to 16")
+    @Pattern(regexp="^[a-zA-Z0-9]+$", message="Username must be alphanumeric with no spaces")
     @Column(name = "NAME", nullable = false)
     private String name;
 

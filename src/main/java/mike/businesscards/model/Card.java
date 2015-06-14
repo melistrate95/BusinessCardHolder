@@ -1,6 +1,8 @@
 package mike.businesscards.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -18,9 +20,13 @@ public class Card implements Serializable {
     @JoinColumn(name = "USER_ID")
     private User user;
 
+//    @NotNull
+//    @Size(min=1, max=50)
     @Column(name = "NAME", nullable = false)
     private String name;
 
+//    @NotNull
+//    @Size(min=1, max=50)
     @Column(name = "URL")
     private String url;
 

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -53,6 +54,27 @@ public class JobController {
         }
         User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
         this.jobsService.addJob(job, onlineUser.getId());
+        return "redirect:/personal";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/edit_job/{id}")
+    public String initEditJobPage(@PathVariable Integer id, ModelMap model) {
+        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        Jobs jobs = jobsService.getJob(onlineUser.getId(), id);
+        model.addAttribute("job", jobs);
+        return "job_edit";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/edit_job")
+    public String editJob(ModelMap model, Jobs jobs) {
+        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        this.jobsService.addJob(jobs, onlineUser.getId());
+        return "redirect:/personal";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/delete_job/{id}")
+    public String deleteJob(@PathVariable Integer id, ModelMap model) {
+        jobsService.removeJob(id);
         return "redirect:/personal";
     }
 }
