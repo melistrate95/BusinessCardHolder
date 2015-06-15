@@ -185,6 +185,41 @@ a:hover {
     margin: 100px 0 0 50px;
 }
 
+.home-header-1 {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-right: 150px;
+}
+
+.home-header-2 {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 400px;
+}
+
+.home-header-3 {
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    width: 400px;
+}
+
+.home-header-font-1 {
+    font-size: 40px;
+    color: #A6A2A2;
+}
+
+.home-header-font-2 {
+    font-size: 30px;
+    color: #8B8181;
+}
+.home-header-font-3 {
+    font-size: 30px;
+    color: #382B2B;
+}
+
 .rule-btn {
     border-radius: 50%;
     margin: 0 5px;

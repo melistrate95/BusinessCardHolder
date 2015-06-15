@@ -31,7 +31,7 @@
                                 <span class="glyphicon glyphicon-plus"></span>
                             </a>
                         </c:if>
-                        <h1 class="featurette-heading">${user.name} [ ${user.mail} ]</h1>
+                        <h1 class="featurette-heading">${user.name}</h1>
                     </div>
                 </div>
                 <div id="wrapper" class="space-simple-carousel">
