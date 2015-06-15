@@ -36,7 +36,9 @@
                                     <td>${tab.password}</td>
                                     <td>${tab.role}</td>
                                     <td><a href="http://localhost:8080/id${tab.id}">id${tab.id}</a> </td>
-                                    <td><a href="/manage/delete/id${tab.id}"><spring:message code="locale.delete"/></a> </td>
+                                    <c:if test="${tab.id != online_user.id}">
+                                        <td><a href="/manage/delete/id${tab.id}"><spring:message code="locale.delete"/></a> </td>
+                                    </c:if>
                                 </tr>
                             </c:forEach>
                         </tbody>
