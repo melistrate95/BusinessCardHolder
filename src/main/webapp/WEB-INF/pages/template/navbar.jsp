@@ -24,14 +24,15 @@
                         <spring:message code="locale.theme"/> <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><spring:message code="locale.dark"/></a></li>
-                        <li><a href="#"><spring:message code="locale.light"/></a></li>
+                        <li><a href="?theme=black"><spring:message code="locale.dark"/></a></li>
+                        <li><a href="?theme=light"><spring:message code="locale.light"/></a></li>
                     </ul>
                 </li>
             </ul>
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
-                    <input type="text" id="searchText" class="form-control" placeholder="Search">
+                    <input type="text" id="searchText" class="form-control"
+                           placeholder="<spring:message code="locale.search"/>">
                 </div>
                 <a href="#" id="searchBtn" class="btn btn-default">
                     <span class="glyphicon glyphicon-search"></span>

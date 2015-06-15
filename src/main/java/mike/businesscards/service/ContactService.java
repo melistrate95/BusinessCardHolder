@@ -11,6 +11,8 @@ public interface ContactService {
 
     public void addContact(Contact contact, Integer userId);
 
+    public Contact getContact(Integer userId, Integer contactId);
+
     public List<Contact> listUserContact(Integer userId);
 
     public List<Contact> listAllContact();

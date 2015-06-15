@@ -81,7 +81,14 @@
                     </c:if>
                     <h2 class="featurette-heading"><spring:message code="locale.contacts"/></h2>
                     <c:forEach items="${contacts}" var="contact">
-                        <p class="lead">${contact.type}: ${contact.content}</p>
+                        <p class="lead">${contact.type}: ${contact.content}
+							<a href="/edit_contact/${contact.id}" class="edit-btn">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+							<a href="/delete_contact/${contact.id}" class="edit-btn">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+						</p>
                         <hr>
                     </c:forEach>
                 </div>
@@ -105,10 +112,16 @@
                     <h2 class="featurette-heading"><spring:message code="locale.jobs"/></h2>
                     <c:forEach items="${jobs}" var="job">
                         <p class="lead">
-                            <spring:message code="locale.company"/>: ${job.company}<br/>
+                            <spring:message code="locale.company"/>: ${job.company}
+							<a href="/edit_job/${job.id}" class="edit-btn">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</a>
+							<a href="/delete_job/${job.id}" class="edit-btn">
+								<span class="glyphicon glyphicon-remove"></span>
+							</a>
+							<br/>
                             <spring:message code="locale.post"/>: ${job.post}
                         </p>
-                        <hr>
                     </c:forEach>
                 </div>
             </div>

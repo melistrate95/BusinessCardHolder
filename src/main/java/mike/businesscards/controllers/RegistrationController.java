@@ -10,8 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.validation.Valid;
 
 /**
  * Created by Mike on 11/05/2015.
@@ -36,7 +39,10 @@ public class RegistrationController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String makeRegistration(ModelMap model, User user, BindingResult result) {
+    public String makeRegistration(ModelMap model, @Valid User user, Errors errors, BindingResult result) {
+        if (errors.hasErrors()) {
+            return "registration";
+        }
         if (result.hasErrors()) {
             model.put("userRegistration", user);
             return "registration";

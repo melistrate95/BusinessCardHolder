@@ -23,6 +23,9 @@ public class ContactServiceImpl implements ContactService{
     }
 
     @Transactional
+    public Contact getContact(Integer userId, Integer contactId) { return contactDao.getContact(userId, contactId); }
+
+    @Transactional
     public List<Contact> listUserContact(Integer userId) {
         return contactDao.listUserContact(userId);
     }

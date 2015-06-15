@@ -11,9 +11,11 @@ public interface JobsDao {
 
     public void addJob(Jobs contact, Integer userId);
 
+    public Jobs getJob(Integer userId, Integer jobId);
+
     public List<Jobs> listUserJobs(Integer userId);
 
     public List<Jobs> listAllJobs();
 
-    public void removeContact(Integer id);
+    public void removeJob(Integer id);
 }

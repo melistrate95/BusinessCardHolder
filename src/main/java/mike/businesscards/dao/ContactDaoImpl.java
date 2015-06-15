@@ -28,6 +28,13 @@ public class ContactDaoImpl implements  ContactDao {
         this.sessionFactory.getCurrentSession().saveOrUpdate(contact);
     }
 
+    public Contact getContact(Integer userId, Integer contactId) {
+        Query q = this.sessionFactory.getCurrentSession().createQuery("FROM Contact where id=:id and user=:user");
+        q.setInteger("id", contactId);
+        q.setInteger("user", userId);
+        return (Contact) q.uniqueResult();
+    }
+
     public List<Contact> listUserContact(Integer userId) {
         Query q = this.sessionFactory.getCurrentSession().createQuery("FROM User where id=:id");
         q.setInteger("id", userId);

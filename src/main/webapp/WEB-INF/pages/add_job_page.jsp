@@ -8,7 +8,7 @@
 --%>
 <tiles:insertDefinition name="defaultTemplate">
     <tiles:putAttribute name="title">
-        CardEditor
+        JobEditor
     </tiles:putAttribute>
     <tiles:putAttribute name="body">
         <div class="container" style="padding-top: 80px">

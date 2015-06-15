@@ -1,6 +1,10 @@
 package mike.businesscards.model;
 
+import org.jboss.logging.Message;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 /**
@@ -20,9 +24,13 @@ public class Contact  implements Serializable {
     @JoinColumn(name = "USER_ID")
     private User user;
 
+    @NotNull
+    @Size(min=3, max=16, message = "Length from 3 to 16")
     @Column(name = "TYPE", nullable = false)
     private String type;
 
+    @NotNull
+    @Size(min=3, max=16)
     @Column(name = "CONTENT", nullable = false)
     private String content;
 

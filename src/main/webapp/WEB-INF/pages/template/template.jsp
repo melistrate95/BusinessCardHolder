@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/resources/css/style.css">
 
     <link rel="stylesheet" href="/resources/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="<spring:theme code="css"/>">
 
     <script type="text/javascript" src="/resources/js/jquery-ui.js"></script>
     <script type="text/javascript" src="/resources/js/search.js"></script>

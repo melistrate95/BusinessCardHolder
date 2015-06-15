@@ -195,6 +195,11 @@ a:hover {
     text-align: center;
 }
 
+.edit-btn {
+    float: right;
+    margin-left: 10px;
+    font-size: 12px;
+}
 
 /*spiner*/
 
