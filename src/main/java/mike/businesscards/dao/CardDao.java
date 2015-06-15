@@ -17,4 +17,6 @@ public interface CardDao {
     public List<Card> listAllCard();
 
     public void removeCard(Integer id);
+
+    public List<Card> search(String text);
 }

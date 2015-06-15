@@ -98,6 +98,21 @@
         return console.log('error');
       }
     });
+    $("#downloadPdfBtn").click(function() {
+      html2canvas($(".card"), {
+        onrendered: function(canvas) {
+          var imageData;
+          imageData = canvas.toDataURL();
+          return $("#imageCard").val(imageData);
+        }
+      });
+      $('.properties').hide();
+      clearElement();
+      return $('#downloadPdfModal').modal();
+    });
+    $("#submitPdfBtn").click(function() {
+      return $('#downloadPdfModal').modal('hide');
+    });
     $("#submitBtn").click(function() {
       var contact, j, json, len, ref;
       $('#myModal').modal('hide');
@@ -140,7 +155,11 @@
                   return console.log("WOOPS");
                 },
                 success: function(response) {
-                  return console.log("SUCCESS url: " + response.url);
+                  console.log("SUCCESS url: " + response.url);
+                  $('#urlCardImage').val(response.urlImage);
+                  $('#urlCardImage').show();
+                  $('#urlCard').val(response.url);
+                  return $('#urlCard').show('slow');
                 }
               });
             }
@@ -176,6 +195,8 @@
     $('#positionY').on('input', function() {
       return setProperties();
     });
+    $('#urlCard').hide();
+    $('#urlCardImage').hide();
     $('#contacts').hide();
     return $('.properties').hide();
   });

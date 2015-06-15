@@ -10,7 +10,7 @@ public interface CardService {
 
     public Integer create(String json);
 
-    public String saveCardImage(Integer idCard, String image);
+    public Card saveCardImage(Integer idCard, String image);
 
     public String getCardByIdJson(Integer id);
 
@@ -22,5 +22,7 @@ public interface CardService {
 
     public Integer update(Integer idCard, String json);
 
-    public String updateCardImage(Integer idCard, String image);
+    public Card updateCardImage(Integer idCard, String image);
+
+    public List<Card> searchCards(String text);
 }

@@ -56,13 +56,15 @@
                         <dutton type="button" id="openModal" class="btn btn-default btn-lg rule-btn">
                             <span class="glyphicon glyphicon-saved"></span>
                         </dutton>
-                        <dutton type="button" id="uploadPdfBtn" class="btn btn-default btn-lg rule-btn">
+                        <button type="button" id="downloadPdfBtn" class="btn btn-default btn-lg rule-btn">
                             <span class="fa fa-file-pdf-o"></span>
-                        </dutton>
+                        </button>
                         <div id="mySpiner" class="modal spinner" aria-hidden="true">
                             <div class="dot1"></div>
                             <div class="dot2"></div>
                         </div>
+                        <input type="text" class="form-control" id="urlCard"/>
+                        <input type="text" class="form-control" id="urlCardImage"/>
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
                             aria-labelledby="myModalLabel" aria-hidden="true">
@@ -88,6 +90,30 @@
                                         <a href="/id${user.id}" id="submitBtn" class="btn btn-primary">
                                             <spring:message code="locale.save"/>
                                         </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade" id="downloadPdfModal" tabindex="-1" role="dialog"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Pdf</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5><spring:message code="locale.pdf"/></h5>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="/downloadPDF" method="post" id="imageForm">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                <spring:message code="locale.close"/>
+                                            </button>
+                                            <input type="hidden" id="imageCard" name="image" value=""/>
+                                            <button type="submit" id="submitPdfBtn" class="btn btn-primary">
+                                                <spring:message code="locale.save"/>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

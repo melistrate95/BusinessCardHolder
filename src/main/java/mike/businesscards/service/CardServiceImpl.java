@@ -62,20 +62,27 @@ public class CardServiceImpl implements CardService {
 
     @Override
     @Transactional
-    public String saveCardImage(Integer idCard, String image) {
+    public Card saveCardImage(Integer idCard, String image) {
         String url = cardUtil.sendImage(idCard, image);
         Card card = cardDao.getCardById(idCard);
         card.setUrl(url);
-        return url;
+        return card;
     }
 
     @Override
     @Transactional
-    public String updateCardImage(Integer idCard, String image) {
+    public Card updateCardImage(Integer idCard, String image) {
         Card card = getCardById(idCard);
         String url = card.getUrl();
         cardUtil.removeImage(url);
-        return saveCardImage(idCard, image);
+        card = saveCardImage(idCard, image);
+        return card;
+    }
+
+    @Override
+    @Transactional
+    public List<Card> searchCards(String text) {
+        return cardDao.search(text);
     }
 
     @Override

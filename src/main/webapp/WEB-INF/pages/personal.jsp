@@ -39,16 +39,18 @@
                         <c:set var="i" value="${0}"/>
                         <c:forEach items="${cards}" var="card">
                             <div>
-                                <div class="remove-preview">
-                                    <a href="/id${user.id}" id="removeCard" id-card="${card.id}">
-                                        <span class="glyphicon glyphicon-remove"></span>
-                                    </a>
-                                </div>
-                                <div class="edit-preview">
-                                    <a href="/id${user.id}/cards/${card.id}/edit" id="editCard" id-card="${card.id}">
-                                        <span class="glyphicon glyphicon-pencil"></span>
-                                    </a>
-                                </div>
+                                <c:if test="${user.id == online_user.id || online_user.role == 'ROLE_ADMIN'}">
+                                    <div class="remove-preview">
+                                        <a href="/id${user.id}" id="removeCard" id-card="${card.id}">
+                                            <span class="glyphicon glyphicon-remove"></span>
+                                        </a>
+                                    </div>
+                                    <div class="edit-preview">
+                                        <a href="/id${user.id}/cards/${card.id}/edit" id="editCard" id-card="${card.id}">
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </a>
+                                    </div>
+                                </c:if>
                                 <div class="preview">
                                     <a href="/id${user.id}/cards/${card.id}/show">
                                         <h2 class="card-heading">${card.name}</h2>
@@ -84,17 +86,21 @@
                     </c:forEach>
                 </div>
                 <div class="col-md-5">
-                    <img class="featurette-image img-responsive center-block" alt="Contacts" src="/resources/images/contacts.jpg" data-holder-rendered="true" kasperskylab_antibanner="on">
+                    <img class="featurette-image img-responsive center-block" alt="Contacts"
+                         src="/resources/images/contacts.jpg" data-holder-rendered="true" kasperskylab_antibanner="on">
                 </div>
             </div>
             <hr class="featurette-divider">
             <div class="row featurette">
                 <div class="col-md-5 banner">
-                    <img class="featurette-image img-responsive center-block" alt="Jobs" src="/resources/images/jobs.jpg" data-holder-rendered="true" kasperskylab_antibanner="on">
+                    <img class="featurette-image img-responsive center-block" alt="Jobs"
+                         src="/resources/images/jobs.jpg" data-holder-rendered="true" kasperskylab_antibanner="on">
                 </div>
                 <div class="col-md-7 banner">
                     <c:if test="${user.id == online_user.id || online_user.role == 'ROLE_ADMIN'}">
-                        <a href="/add_job" class="btn btn-lg add-button"><span class="glyphicon glyphicon-plus"></span></a>
+                        <a href="/add_job" class="btn btn-lg add-button">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>
                     </c:if>
                     <h2 class="featurette-heading"><spring:message code="locale.jobs"/></h2>
                     <c:forEach items="${jobs}" var="job">

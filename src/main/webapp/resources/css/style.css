@@ -176,6 +176,10 @@ a:hover {
 }
 
 /*user info*/
+.search-space {
+    margin: 120px auto;
+    text-align: center;
+}
 
 .user-info {
     margin: 100px 0 0 50px;

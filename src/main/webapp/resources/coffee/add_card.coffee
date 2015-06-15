@@ -84,6 +84,17 @@ $ ->
     error: (data, headers, status) ->
       console.log 'error'
 
+  $("#downloadPdfBtn").click ->
+    html2canvas $(".card"), onrendered: (canvas) ->
+      imageData = canvas.toDataURL()
+      $("#imageCard").val imageData
+    $('.properties').hide()
+    clearElement()
+    $('#downloadPdfModal').modal()
+
+  $("#submitPdfBtn").click ->
+    $('#downloadPdfModal').modal 'hide'
+
   $("#submitBtn").click ->
     $('#myModal').modal('hide')
     json =
@@ -117,6 +128,10 @@ $ ->
               console.log("WOOPS")
             success: (response) ->
               console.log("SUCCESS url: " + response.url)
+              $('#urlCardImage').val(response.urlImage)
+              $('#urlCardImage').show()
+              $('#urlCard').val(response.url)
+              $('#urlCard').show 'slow'
     $("#openModal").attr 'disabled' : 'disabled'
     false
 
@@ -137,6 +152,8 @@ $ ->
   $('#positionY').on 'input', ->
    setProperties()
 
+  $('#urlCard').hide()
+  $('#urlCardImage').hide()
   $('#contacts').hide()
   $('.properties').hide()
 

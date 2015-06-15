@@ -7,6 +7,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "cards")
+@NamedQuery(name = "searchCards",
+    query = "SELECT DISTINCT c FROM Card c JOIN c.elementsCard el WHERE c.name LIKE :nameCard OR el.text LIKE :textElement ")
 public class Card implements Serializable {
 
     @Id

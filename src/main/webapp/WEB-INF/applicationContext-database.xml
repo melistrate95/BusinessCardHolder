@@ -13,9 +13,7 @@
                            http://www.springframework.org/schema/tx
                            http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!--<context:property-placeholder location="classpath:app.properties"/>-->
     <context:property-placeholder location="classpath:app.properties" system-properties-mode="ENVIRONMENT"/>
-    <!--<mvc:annotation-driven/>-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
@@ -32,7 +30,6 @@
     <bean id = "sessionFactory" class = "org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref = "dataSource"/>
         <property name="packagesToScan" value="mike.businesscards"/>
-        <!--<property name="configLocation" value="classpath:hibernate.cfg.xml"/>-->
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.show_sql">true</prop>
@@ -44,8 +41,5 @@
             </props>
         </property>
     </bean>
-
-    <!--<bean id="myUserDetailsService" class="mike.businesscards.service.UserDetailsServiceImpl">-->
-    <!--</bean>-->
 
 </beans>

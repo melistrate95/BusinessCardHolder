@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="/resources/css/jquery-ui.css">
 
     <script type="text/javascript" src="/resources/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/resources/js/search.js"></script>
+
     <tiles:insertAttribute name="scripts"/>
 </head>
 <body>

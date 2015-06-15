@@ -57,4 +57,12 @@ public class CardDaoImpl implements  CardDao{
             sessionFactory.getCurrentSession().delete(card);
         }
     }
+
+    @Override
+    public List<Card> search(String text) {
+        Query query = sessionFactory.getCurrentSession().getNamedQuery("searchCards");
+        query.setParameter("nameCard", "%" + text + "%");
+        query.setParameter("textElement", "%" + text + "%");
+        return query.list();
+    }
 }

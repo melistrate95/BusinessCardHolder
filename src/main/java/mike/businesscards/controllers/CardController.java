@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -83,7 +84,9 @@ public class CardController {
         @RequestParam(value = "idCard") Integer idCard,
         @RequestParam(value = "image", defaultValue = "") String image) {
         Map<String,Object> response = new HashMap<String, Object>();
-        response.put("url", cardService.saveCardImage(idCard, image));
+        Card card = cardService.saveCardImage(idCard, image);
+        response.put("urlImage", card.getUrl());
+        response.put("url", "http://localhost:8080/id" + card.getUser().getId() + "/cards/" + card.getId() + "/show");
         return response;
     }
     @RequestMapping(value = "/id{id}/cards/{idCardPath}/saveCard/saveCardImage", method = RequestMethod.POST)
@@ -92,7 +95,9 @@ public class CardController {
         @RequestParam(value = "idCard") Integer idCard,
         @RequestParam(value = "image", defaultValue = "") String image) {
         Map<String,Object> response = new HashMap<String, Object>();
-        response.put("url", cardService.updateCardImage(idCard, image));
+        Card card = cardService.updateCardImage(idCard, image);
+        response.put("urlImage", card.getUrl());
+        response.put("url", "http://localhost:8080/id" + card.getUser().getId() + "/cards/" + card.getId() + "/show");
         return response;
     }
 
@@ -107,7 +112,7 @@ public class CardController {
 
     @RequestMapping(value = "/id{id}/cards/{idCard}/edit", method = RequestMethod.GET)
     public String goToPageEditCard(@PathVariable Integer id, @PathVariable Integer idCard, ModelMap model) {
-        User onlineUser = this.userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        User onlineUser = userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
         model.addAttribute("user", onlineUser);
         ArrayList<Contact> contacts = (ArrayList<Contact>) contactService.listUserContact(id);
         model.addAttribute("contacts", contacts);
@@ -117,7 +122,18 @@ public class CardController {
         return "add_card_page";
     }
 
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String searchCard(@RequestParam(value = "searchText") String searchText, ModelMap model) {
+        User onlineUser = userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        model.addAttribute("user", onlineUser);
+        model.addAttribute("cards", cardService.searchCards(searchText));
+        return "search_page";
+    }
 
+    @RequestMapping(value = "/downloadPDF", method = RequestMethod.POST)
+    public ModelAndView downloadPdf(@RequestParam(value = "image", defaultValue = "") String image) {
+        return new ModelAndView("pdfView", "image", image);
+    }
 
 
 }

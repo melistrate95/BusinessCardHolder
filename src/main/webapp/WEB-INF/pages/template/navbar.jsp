@@ -29,6 +29,14 @@
                     </ul>
                 </li>
             </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" id="searchText" class="form-control" placeholder="Search">
+                </div>
+                <a href="#" id="searchBtn" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search"></span>
+                </a>
+            </form>
             <ul class="nav navbar-nav navbar-right">
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
                     <li>
