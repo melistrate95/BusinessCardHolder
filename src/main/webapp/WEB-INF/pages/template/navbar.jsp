@@ -51,7 +51,7 @@
                 </sec:authorize>
                 <sec:authorize access="isAuthenticated()">
                     <li>
-                        <a href="/personal">${email}</a>
+                        <a href="/personal"><sec:authentication property="principal.username"/></a>
                     </li>
                     <li>
                         <a href="/logout">
