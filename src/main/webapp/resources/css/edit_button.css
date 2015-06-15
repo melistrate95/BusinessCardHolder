@@ -1,11 +1,11 @@
 .edit-button {
     position: absolute;
     top: 20px;
-    right: 50px;
+    right: 15%;
 }
 
 .add-button {
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 10%;
 }

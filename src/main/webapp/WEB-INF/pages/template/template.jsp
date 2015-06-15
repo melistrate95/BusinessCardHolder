@@ -14,9 +14,7 @@
 
     <script type="text/javascript" src="/resources/js/jquery.js"></script>
     <script type="text/javascript" src="/resources/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
     <link rel='stylesheet' href='/resources/css/bootstrap.css'>
-    <link rel='stylesheet' href='/resources/css/bootstrap.min.css'>
     <link rel="stylesheet" href="/resources/css/style.css">
 
     <link rel="stylesheet" href="/resources/css/jquery-ui.css">

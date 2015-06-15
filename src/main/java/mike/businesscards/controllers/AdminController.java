@@ -28,15 +28,19 @@ public class AdminController {
 
     @RequestMapping(value = "/manage")
     public String getManagePage(ModelMap model) {
-        (new UserSessionService()).addMailAttribute(model);
+        User onlineUser = userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
         ArrayList<User> userArrayList = (ArrayList<User>) this.userService.listAll();
         model.addAttribute("array", userArrayList);
+        model.addAttribute("online_user", onlineUser);
         return "manage";
     }
 
     @RequestMapping(value = "/manage/delete/id{id}", method = RequestMethod.GET)
     public String deleteUserPage(@PathVariable Integer id, ModelMap model) {
-        this.userService.removeUser(id);
+        User onlineUser = userService.getUserByEmail((new UserSessionService()).addMailAttribute(model));
+        if (onlineUser.getId() != id) {
+            this.userService.removeUser(id);
+        }
         return "redirect:/manage";
     }
 }
